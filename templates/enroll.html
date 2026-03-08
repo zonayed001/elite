@@ -1,0 +1,404 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Encroll</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='assets/img/favicon.ico') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.carousel.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slicknav.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/hamburgers.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/magnific-popup.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome-all.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/themify-icons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/themify-icons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/nice-select.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/responsive.css') }}">
+      <style>
+        
+         #chatMessages {
+         max-height: 300px;
+         overflow-y: scroll;
+         padding: 10px;
+         border: 1px solid #ccc;
+         margin-bottom: 10px;
+         }
+         .message {
+         padding: 5px;
+         margin: 5px;
+         }
+         .user-message {
+         text-align: right;
+         background-color: #dff0d8;
+         }
+         .other-message {
+         text-align: left;
+         background-color: #f1f1f1;
+         }
+        .mfp-iframe-holder .mfp-close {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+   </head>
+   <body>
+      <div id="preloader-active">
+         <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+               <div class="preloader-circle"></div>
+               <div class="preloader-img pere-text">
+                  <img src="{{ url_for('static', filename='assets/img/logo/loder.png') }}" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="header-area header-transparent">
+         <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+               <div class="container-fluid">
+                  <div class="row align-items-center">
+                     <div class="col-xl-2 col-lg-2">
+                        <div class="logo">
+                           <a href="/"><img src="{{ url_for('static', filename='assets/img/img/x.png') }}" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="col-xl-10 col-lg-10">
+                        <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                           <div class="main-menu d-none d-lg-block">
+                              <nav>
+                                 <ul id="navigation">                                                                                          
+                                     <li class="active"><a href="/">Home</a></li>
+                                     {% if user %}
+                                         {% if not user.is_instructor %}
+                                             <li><a href="{{ url_for('courses') }}">Courses</a></li>
+                                             <li><a href="{{ url_for('instructor') }}">Instructor</a></li>
+                                             <li><a href="{{ url_for('apply') }}">Apply</a></li>
+                                          {% endif %}
+                                     {% endif %}
+                                     {% if 'user_id' in session %}
+                                          <li><a href="{{ url_for('profile') }}">profile</a></li>
+                                         <li class="button-header"><a href="{{ url_for('logout') }}" class="btn btn3">Log out</a></li>
+                                     {% else %}
+                                         <li class="button-header margin-left"><a href="register" class="btn">Join</a></li>
+                                         <li class="button-header"><a href="login" class="btn btn3">Log in</a></li>
+                                     {% endif %}
+                                 </ul>
+                             </nav>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <main>
+         <section class="slider-area slider-area2" style="background-image: url('/static/assets/img/hero/h1_hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="slider-active slick-initialized slick-slider">
+               <div class="slick-list draggable">
+                  <div class="slick-track" style="opacity: 1; width: 1920px;">
+                     <div class="single-slider slider-height2 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 1920px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="0">
+                        <div class="container">
+                           <div class="row">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="course-details-area section-padding">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="course-image-container position-relative">
+                        <img class="card-img rounded-0" 
+                           src="{{ url_for('static', filename=course.image) }}" 
+                           alt="Course Image"
+                           style="width: 100%; height: 400px; object-fit: cover;">
+                        <div class="video-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                           <a class="popup-video btn-icon" data-toggle="modal" data-target="#videoModal">
+                           <i class="fas fa-play"></i>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="course-details text-center" style="padding: 20px;">
+                        <h2 class="course-title" style="font-size: 2.5rem; font-weight: bold; margin-bottom: 20px;">
+                           {{ course.title }}
+                        </h2>
+                        <p class="course-description" style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">
+                           {{ course.description }}
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="course-buttons text-center">
+                        <button class="btn btn-info" id="chatToggleBtn">
+                        <i class="fas fa-comments"></i> Live Chat
+                        </button>
+                        <button class="btn btn-info" id="scheduleToggleBtn">
+                        <i class="fas fa-calendar"></i> Schedule
+                        </button>
+                        <button class="btn btn-danger" id="playlistToggleBtn">
+                        <i class="fas fa-video"></i> Playlist
+                        </button>
+                        <button class="btn btn-warning" id="contentToggleBtn">
+                        <i class="fas fa-list"></i> Content
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <section id="courseContentSection" class="course-section course-details-area section-padding" style="display: none;">
+                  <div class="container">
+                     <div id="courseContentSection" class="course-section">
+                        <h3 class="text-center mb-4">Course Content</h3>
+                        <div class="card shadow-sm">
+                           <div class="card-body">
+                              <ul class="list-group list-group-flush">
+                                 {% for pdf in pdfs %}
+                                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="text-truncate" style="max-width: 70%;"><b>{{ pdf.pdf_filename }} </b></span>
+                                    <a href="{{ url_for('static', filename='pdf/' + pdf.pdf_filename) }}" class="btn btn-outline-primary btn-sm" download>
+                                    <i class="fas fa-download"></i> Download
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section><section id="youtubePlaylistSection" class="course-section course-details-area section-padding" style="display: none; padding: 40px 0; background-color: rgb(248, 248, 248);">
+                  <div class="container">
+                     <div class="course-section">
+                        <h3 class="text-center" style="font-size: 28px; font-weight: 700; color: #333; margin-bottom: 30px;">Playlist</h3>
+                        {% if playlists %}
+                        <div id="videoPlayerContainer" style="display: none; margin-bottom: 20px; background-color: #000; border-radius: 10px; overflow: hidden;">
+                           <iframe id="videoPlayer" class="embed-responsive-item" style="border: none; width: 100%; height: 400px;" allowfullscreen></iframe>
+                        </div>
+                        <ul class="list-group">
+                           {% for playlist in playlists %}
+                           <li class="list-group-item d-flex justify-content-between align-items-center">
+                              <span class="text-truncate" style="max-width: 70%;"><b>{{ playlist.id }}</b></span>
+                              <button class="btn btn-outline-primary btn-sm" onclick="showVideo('{{ playlist.youtube_playlist_link }}')">
+                                 <i class="fas fa-play"></i> Play
+                              </button>
+                           </li>
+                           {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p class="text-center">No videos available for this course.</p>
+                        {% endif %}
+                     </div>
+                  </div>
+               </section>
+               <section id="scheduleSection" class="course-section course-details-area section-padding" style="display: none;">
+                  <div class="container">
+                     <div id="scheduleSection" class="course-section">
+                        <h3 class="text-center">Course Schedule</h3>
+                        <div class="accordion" id="scheduleAccordion">
+                           {% for week in weeks %}
+                           <div class="card">
+                              <div class="card-header" id="week{{ loop.index }}Heading">
+                                 <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" 
+                                       data-target="#week{{ loop.index }}Details" 
+                                       aria-expanded="false" aria-controls="week{{ loop.index }}Details">
+                                    Week {{ loop.index }}
+                                    </button>
+                                 </h5>
+                              </div>
+                              <div id="week{{ loop.index }}Details" class="collapse" aria-labelledby="week{{ loop.index }}Heading" data-parent="#scheduleAccordion">
+                                 <div class="card-body">
+                                    <ul class="list-unstyled">
+                                       <li><strong>{{ week.week }}:</strong> {{ week.activity }}</li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           {% endfor %}
+                        </div>
+                     </div>
+                  </div>
+               </section>
+               <section id="chatBoxSection" class="course-section course-details-area section-padding" style="display: none;">
+                  <div class="container">
+                     <div id="chatBoxSection" class="course-section">
+                        <h3 class="text-center">Chat</h3>
+                        <div class="chat-container position-relative mb-4">
+                           <div id="chatMessages" class="chat-messages" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; background: #f9f9f9;"></div>
+                           <div class="input-group mt-3">
+                              <input type="text" id="chat-message" class="form-control" placeholder="Type a message">
+                           </div>
+                           <button id="send-message" class="btn btn-primary mt-2">Send</button>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+               
+            </div>
+         </section>
+         </main>
+         <footer>
+            <div class="footer-wrappper footer-bg">
+               <div class="footer-bottom-area">
+                  <div class="container">
+                     <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                           <div class="col-xl-12 ">
+                              <div class="footer-copy-right text-center">
+                                 <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+         <div id="back-top" >
+            <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+         </div>
+         <script>
+            function showVideo(videoUrl) {
+               if (videoUrl) {
+                  const videoId = videoUrl.split('v=')[1]?.split('&')[0];
+                  const embedUrl = videoId 
+                     ? `https://www.youtube.com/embed/${videoId}?autoplay=1` 
+                     : videoUrl;
+
+                  const videoPlayerContainer = document.getElementById('videoPlayerContainer');
+                  const videoPlayer = document.getElementById('videoPlayer');
+                  videoPlayer.src = embedUrl;
+                  videoPlayerContainer.style.display = 'block';
+
+                  const embedImage = document.querySelector('.embed-responsive img');
+                  const videoIcon = document.querySelector('.video-icon');
+                  if (embedImage) embedImage.style.display = 'none';
+                  if (videoIcon) videoIcon.style.display = 'none';
+
+                  videoPlayerContainer.scrollIntoView({ behavior: 'smooth' });
+               }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+   const chatMessages = document.getElementById('chatMessages');
+   const chatInput = document.getElementById('chat-message');
+   const sendButton = document.getElementById('send-message');
+
+   async function sendMessageToAPI(message) {
+      return new Promise((resolve) => {
+         setTimeout(() => {
+            resolve({ reply: `Bot: Please wait for reply...` });
+         }, 500);
+      });
+   }
+
+   function appendMessage(content, isUser = true) {
+      const messageElement = document.createElement('div');
+      messageElement.textContent = content;
+      messageElement.style.margin = '5px 0';
+      messageElement.style.padding = '8px';
+      messageElement.style.borderRadius = '8px';
+      messageElement.style.maxWidth = '70%';
+
+      if (isUser) {
+         messageElement.style.backgroundColor = '#007bff';
+         messageElement.style.color = 'white';
+         messageElement.style.alignSelf = 'flex-end';
+      } else {
+         messageElement.style.backgroundColor = '#A6AEBF';
+         messageElement.style.color = 'white';
+         messageElement.style.alignSelf = 'flex-end';
+      }
+
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+   }
+
+   sendButton.addEventListener('click', async () => {
+      const message = chatInput.value.trim();
+      if (message) {
+         appendMessage(message);
+         chatInput.value = '';
+         const response = await sendMessageToAPI(message);
+         appendMessage(response.reply, false);
+      }
+   });
+   chatInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+         sendButton.click();
+      }
+   });
+});
+
+            document.getElementById("contentToggleBtn").onclick = function() {
+                document.getElementById("courseContentSection").style.display = "block";
+                document.getElementById("youtubePlaylistSection").style.display = "none";
+                document.getElementById("scheduleSection").style.display = "none";
+                document.getElementById("chatBoxSection").style.display = "none";
+            }
+            
+            document.getElementById("playlistToggleBtn").onclick = function() {
+                document.getElementById("youtubePlaylistSection").style.display = "block";
+                document.getElementById("courseContentSection").style.display = "none";
+                document.getElementById("scheduleSection").style.display = "none";
+                document.getElementById("chatBoxSection").style.display = "none";
+            }
+            
+            document.getElementById("scheduleToggleBtn").onclick = function() {
+                document.getElementById("scheduleSection").style.display = "block";
+                document.getElementById("courseContentSection").style.display = "none";
+                document.getElementById("youtubePlaylistSection").style.display = "none";
+                document.getElementById("chatBoxSection").style.display = "none";
+            }
+            
+            document.getElementById("chatToggleBtn").onclick = function() {
+                document.getElementById("chatBoxSection").style.display = "block";
+                document.getElementById("courseContentSection").style.display = "none";
+                document.getElementById("youtubePlaylistSection").style.display = "none";
+                document.getElementById("scheduleSection").style.display = "none";
+            }
+         </script>
+         
+      <script src="{{ url_for('static', filename='assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.slicknav.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/owl.carousel.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/slick.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/animated.headline.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.magnific-popup.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/gijgo.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.nice-select.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.sticky.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.counterup.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/waypoints.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery.countdown.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/hover-direction-snake.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/plugins.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+   </body>
+</html>
