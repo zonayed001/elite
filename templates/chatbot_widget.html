@@ -1,0 +1,94 @@
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='assets/css/chatbot.css') }}">
+<div class="shafin-chatbot"
+     id="shafinChatbot"
+     data-openrouter-model="{{ config.get('OPENROUTER_MODEL', 'nvidia/nemotron-3-super-120b-a12b:free') }}">
+    <button type="button"
+            class="shafin-chatbot-fab"
+            id="shafinChatFab"
+            aria-label="Open AI assistant">
+        <span class="shafin-chatbot-fab-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64"
+                 class="shafin-icon shafin-icon-bot"
+                 role="img"
+                 focusable="false">
+                <circle cx="32" cy="34" r="24" fill="#111b2c" />
+                <circle cx="24" cy="32" r="5" fill="#2dd6ff" />
+                <circle cx="40" cy="32" r="5" fill="#2dd6ff" />
+                <rect x="22" y="42" width="20" height="5" rx="2.5" fill="#5ad8ff" />
+                <circle cx="15" cy="18" r="3" fill="#6f7d95" />
+                <circle cx="49" cy="18" r="3" fill="#6f7d95" />
+                <rect x="28" y="10" width="8" height="4" rx="2" fill="#6f7d95" />
+            </svg>
+        </span>
+    </button>
+    <section class="shafin-chatbot-panel"
+             id="shafinChatPanel"
+             aria-live="polite"
+             aria-label="Elite AI Chat">
+        <header class="shafin-chatbot-header">
+            <div class="shafin-chatbot-title-wrap">
+                <span class="shafin-chatbot-avatar" aria-hidden="true">
+                    <svg viewBox="0 0 64 64"
+                         class="shafin-icon shafin-icon-bot"
+                         role="img"
+                         focusable="false">
+                        <circle cx="32" cy="34" r="24" fill="#111b2c" />
+                        <circle cx="24" cy="32" r="5" fill="#2dd6ff" />
+                        <circle cx="40" cy="32" r="5" fill="#2dd6ff" />
+                        <rect x="22" y="42" width="20" height="5" rx="2.5" fill="#5ad8ff" />
+                        <circle cx="15" cy="18" r="3" fill="#6f7d95" />
+                        <circle cx="49" cy="18" r="3" fill="#6f7d95" />
+                        <rect x="28" y="10" width="8" height="4" rx="2" fill="#6f7d95" />
+                    </svg>
+                </span>
+                <div>
+                    <h3>Elite AI</h3>
+                    <p>Powered by NVIDIA</p>
+                </div>
+            </div>
+            <button type="button"
+                    class="shafin-chatbot-close"
+                    id="shafinChatClose"
+                    aria-label="Close chat">
+                <svg viewBox="0 0 24 24"
+                     class="shafin-icon shafin-icon-close"
+                     role="img"
+                     focusable="false">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+        </header>
+        <div class="shafin-chatbot-messages" id="shafinChatMessages">
+            <article class="shafin-chatbot-message is-assistant">Hello! I am Elite AI. How can I help you today?</article>
+        </div>
+        <div class="shafin-chatbot-typing" id="shafinChatTyping" hidden>
+            <span></span><span></span><span></span>
+        </div>
+        <form class="shafin-chatbot-input-wrap" id="shafinChatForm">
+            <input type="text"
+                   id="shafinChatInput"
+                   name="message"
+                   placeholder="Type your message..."
+                   autocomplete="off"
+                   maxlength="800"
+                   required>
+            <button type="submit"
+                    class="shafin-chatbot-send"
+                    id="shafinChatSend"
+                    aria-label="Send message">
+                <svg viewBox="0 0 24 24"
+                     class="shafin-icon shafin-icon-send"
+                     role="img"
+                     focusable="false">
+                    <path d="M3.45 3.1a.75.75 0 0 1 .82-.17l17.2 7.4a.75.75 0 0 1 0 1.38l-17.2 7.4A.75.75 0 0 1 3.2 18.4v-4.5a.75.75 0 0 1 .61-.74l7.95-1.47-7.95-1.47a.75.75 0 0 1-.61-.74V3.8c0-.27.15-.53.39-.7z" />
+                </svg>
+            </button>
+        </form>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"
+        defer></script>
+<script src="{{ url_for('static', filename='assets/js/site-chatbot.js') }}"
+        defer></script>

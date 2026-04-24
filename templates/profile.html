@@ -1,27 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js"">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Become An Instructor</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicon.ico">
-
-    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/assets/css/slicknav.css">
-    <link rel="stylesheet" href="static/assets/css/animate.min.css">
-    <link rel="stylesheet" href="static/assets/css/hamburgers.min.css">
-    <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="static/assets/css/slick.css">
-    <link rel="stylesheet" href="static/assets/css/nice-select.css">
-    <link rel="stylesheet" href="static/assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Become An Instructor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="static/assets/img/favicon.ico">
+        <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/assets/css/slicknav.css">
+        <link rel="stylesheet" href="static/assets/css/animate.min.css">
+        <link rel="stylesheet" href="static/assets/css/hamburgers.min.css">
+        <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/slick.css">
+        <link rel="stylesheet" href="static/assets/css/nice-select.css">
+        <link rel="stylesheet" href="static/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <style>
     .profile-card {
         text-align: center;
         padding: 20px;
@@ -38,323 +39,374 @@
         border: 3px solid #ddd;
     }
 
-    </style>
-</head>
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="static/assets/img/logo/loder.png" alt="">
+        </style>
+    </head>
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="static/assets/img/logo/loder.png" alt="">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="header-area header-transparent">
-    <div class="main-header ">
-        <div class="header-bottom  header-sticky">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo">
-                            <a href="/"><img src="static/assets/img/img/x.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-10 col-lg-10">
-                        <div class="menu-wrapper d-flex align-items-center justify-content-end">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">                                                                                          
-                                        <li class="active"><a href="/">Home</a></li>
-                                        {% if user %}
-                                            {% if not user.is_instructor %}
-                                                <li><a href="courses">Courses</a></li>
-                                                <li><a href="instructor">Instructor</a></li>
-                                                <li><a href="apply">Apply</a></li>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if 'user_id' in session %}
-                                            <li><a href="{{ url_for('profile') }}">profile</a></li>
-                                            <li class="button-header"><a href="{{ url_for('logout') }}" class="btn btn3">Log out</a></li>
-                                        {% else %}
-                                            <li class="button-header margin-left"><a href="register" class="btn">Join</a></li>
-                                            <li class="button-header"><a href="login" class="btn btn3">Log in</a></li>
-                                        {% endif %}
-                                    </ul>
-                                </nav>
+    <div class="header-area header-transparent">
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="static/assets/img/img/x.png" alt="">
+                                </a>
                             </div>
                         </div>
-                    </div> 
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li class="active">
+                                                <a href="/">Home</a>
+                                            </li>
+                                            {% if user %}
+                                                {% if not user.is_instructor %}
+                                                    <li>
+                                                        <a href="courses">Courses</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="instructor">Instructor</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="apply">Apply</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if 'user_id' in session %}
+                                                <li>
+                                                    <a href="{{ url_for("profile") }}">profile</a>
+                                                </li>
+                                                <li class="button-header">
+                                                    <a href="{{ url_for("logout") }}" class="btn btn3">Log out</a>
+                                                </li>
+                                            {% else %}
+                                                <li class="button-header margin-left">
+                                                    <a href="register" class="btn">Join</a>
+                                                </li>
+                                                <li class="button-header">
+                                                    <a href="login" class="btn btn3">Log in</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<main>
-    <section class="slider-area slider-area2" style="background-image: url('/static/assets/img/hero/h1_hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="slider-active slick-initialized slick-slider">
-            <div class="slick-list draggable">
-                <div class="slick-track" style="opacity: 1; width: 1920px;">
-                    <div class="single-slider slider-height2 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 1920px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="0">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-8 col-lg-11 col-md-12">
-                                    <div class="hero__caption hero__caption2">
-                                        <h1 data-animation="bounceIn" data-delay="0.2s" style="animation-delay: 0.2s;" class="">Profile</h1>
+    <main>
+        <section class="slider-area slider-area2"
+                 style="background-image: url('/static/assets/img/hero/h1_hero.png');
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat">
+            <div class="slider-active slick-initialized slick-slider">
+                <div class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1920px;">
+                        <div class="single-slider slider-height2 slick-slide slick-current slick-active"
+                             data-slick-index="0"
+                             aria-hidden="false"
+                             style="width: 1920px;
+                                    position: relative;
+                                    left: 0px;
+                                    top: 0px;
+                                    z-index: 999;
+                                    opacity: 1"
+                             tabindex="0">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-11 col-md-12">
+                                        <div class="hero__caption hero__caption2">
+                                            <h1 data-animation="bounceIn"
+                                                data-delay="0.2s"
+                                                style="animation-delay: 0.2s"
+                                                class="">Profile</h1>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="contact-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <div class="profile-card">
-                        <img src="static/assets/img/profile_picture/{{ profile_picture }}" alt="Profile Picture" class="profile-picture mb-3">
-                        <h3>{{ user.name }}</h3>
-                        <p>{{ user.email }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        {% if user.is_instructor %}
-        <div class="courses-area section-padding40 fix">
+        </section>
+        <section class="contact-section">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="section-tittle text-center mb-55">
-                            <h2>Your Courses</h2>
+                    <div class="col-lg-6 text-center">
+                        <div class="profile-card">
+                            <img src="static/assets/img/profile_picture/{{ profile_picture }}"
+                                 alt="Profile Picture"
+                                 class="profile-picture mb-3">
+                            <h3>{{ user.name }}</h3>
+                            <p>{{ user.email }}</p>
                         </div>
                     </div>
                 </div>
-                
-                {% if courses %}
-                    <div class="row">
-                        {% for course in courses %}
-                            <div class="col-lg-4">
-                                <div class="properties properties2 mb-30">
-                                    <div class="properties__card">
-                                        <div class="properties__img overlay1">
-                                            <img src="{{ url_for('static', filename=course.image) }}" alt="Course Image">
+            </div>
+            {% if user.is_instructor %}
+                <div class="courses-area section-padding40 fix">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="section-tittle text-center mb-55">
+                                    <h2>Your Courses</h2>
+                                </div>
+                            </div>
+                        </div>
+                        {% if courses %}
+                            <div class="row">
+                                {% for course in courses %}
+                                    <div class="col-lg-4">
+                                        <div class="properties properties2 mb-30">
+                                            <div class="properties__card">
+                                                <div class="properties__img overlay1">
+                                                    <img src="{{ url_for('static', filename=course.image) }}"
+                                                         alt="Course Image">
+                                                </div>
+                                                <div class="properties__caption">
+                                                    <h3>{{ course.title }}</h3>
+                                                    <p>{{ course.description }}</p>
+                                                    <h4>Enrolled Students</h4>
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Email</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for student in students[course.id] %}
+                                                                <tr>
+                                                                    <td>{{ student.name }}</td>
+                                                                    <td>{{ student.email }}</td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="properties__caption">
-                                            <h3>{{ course.title }}</h3>
-                                            <p>{{ course.description }}</p>
-                                            <h4>Enrolled Students</h4>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Email</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {% for student in students[course.id] %}
-                                                        <tr>
-                                                            <td>{{ student.name }}</td>
-                                                            <td>{{ student.email }}</td>
-                                                        </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>You have not created any courses yet.</p>
+                        {% endif %}
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="section-tittle text-center mb-55">
+                                    <div class="mb-30">
+                                        <button class="btn btn-primary"
+                                                data-toggle="modal"
+                                                data-target="#addCourseModal">Add New Course</button>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <p>You have not created any courses yet.</p>
-                {% endif %}
-
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="section-tittle text-center mb-55">
-                            <div class="mb-30">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#addCourseModal">Add New Course</button>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCourseModalLabel">Add New Course</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <div class="modal fade"
+                     id="addCourseModal"
+                     tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="addCourseModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addCourseModalLabel">Add New Course</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" action="add_course">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="title">Course Title</label>
+                                        <input type="text" class="form-control" id="title" name="title" required>
+                                    </div>
+                                    <label for="category">Category</label>
+                                    <select name="category">
+                                        <option value="Programming">Programming</option>
+                                        <option value="Web Development">Web Development</option>
+                                    </select>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control"
+                                                  id="description"
+                                                  name="description"
+                                                  rows="3"
+                                                  required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input type="text" class="form-control" id="price" name="price" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="week">Number of Weeks</label>
+                                        <input type="number"
+                                               class="form-control"
+                                               id="week"
+                                               name="week"
+                                               min="1"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="file" class="form-control" id="image" name="image" required>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create Course</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <form method="post" enctype="multipart/form-data" action="add_course">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="title">Course Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
-                            </div>
-                            <label for="category">Category</label>
-                            <select name="category">
-                                <option value="Programming">Programming</option>
-                                <option value="Web Development">Web Development</option>
-                            </select>
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="week">Number of Weeks</label>
-                                <input type="number" class="form-control" id="week" name="week" min="1" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control" id="image" name="image" required>
+                </div>
+            {% endif %}
+            {% if not user.is_instructor %}
+                <div class="courses-area section-padding40 fix">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="section-tittle text-center mb-55">
+                                    <h2>Your Progress</h2>
+                                </div>
+                                <hr>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create Course</button>
+                        <div class="row">
+                            {% for category_name, progress in student_progress.items() %}
+                                <div class="col-lg-4">
+                                    <div class="properties properties2 mb-30">
+                                        <div class="properties__card">
+                                            <div class="properties__caption">
+                                                <h3>{{ category_name }}</h3>
+                                                <div class="progress">
+                                                    <div class="progress-bar"
+                                                         role="progressbar"
+                                                         style="width: {{ progress.progress_percentage }}%"
+                                                         aria-valuenow="{{ progress.progress_percentage }}"
+                                                         aria-valuemin="0"
+                                                         aria-valuemax="100">
+                                                        {{ progress.progress_percentage|round(0) }}%
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        {% endif %}
-        
-    
-    {% if not user.is_instructor %}
-<div class="courses-area section-padding40 fix">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-8">
-                <div class="section-tittle text-center mb-55">
-                    <h2>Your Progress</h2>
+                <div class="courses-area section-padding40 fix">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="section-tittle text-center mb-55">
+                                    <h2>Enrolled Courses</h2>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        {% if enrolled_courses %}
+                            <div class="row">
+                                {% for course in enrolled_courses %}
+                                    <div class="col-lg-4">
+                                        <div class="properties properties2 mb-30">
+                                            <div class="properties__card">
+                                                <div class="properties__img overlay1">
+                                                    <a href="#">
+                                                        <img src="{{ url_for('static', filename=course.image) }}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="properties__caption">
+                                                    <h3>
+                                                        <a href="#">{{ course.title }}</a>
+                                                    </h3>
+                                                    <p>{{ course.description }}</p>
+                                                    <a href="{{ url_for('enroll', course_id=course.id) }}"
+                                                       class="border-btn border-btn2">View</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>You have not enrolled in any courses yet.</p>
+                        {% endif %}
+                    </div>
                 </div>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            {% for category_name, progress in student_progress.items() %}
-            <div class="col-lg-4">
-                <div class="properties properties2 mb-30">
-                    <div class="properties__card">
-                        <div class="properties__caption">
-                            <h3>{{ category_name }}</h3>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ progress.progress_percentage }}%;" aria-valuenow="{{ progress.progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
-                                    {{ progress.progress_percentage|round(0) }}%
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <div class="footer-wrappper footer-bg">
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
+    </footer>
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-</div>
-
-
-    <div class="courses-area section-padding40 fix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8">
-                    <div class="section-tittle text-center mb-55">
-                        <h2>Enrolled Courses</h2>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            {% if enrolled_courses %}
-            <div class="row">
-                {% for course in enrolled_courses %}
-                <div class="col-lg-4">
-                    <div class="properties properties2 mb-30">
-                        <div class="properties__card">
-                            <div class="properties__img overlay1">
-                                <a href="#"><img src="{{ url_for('static', filename=course.image) }}" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <h3><a href="#">{{ course.title }}</a></h3>
-                                <p>{{ course.description }}</p>
-                                <a href="{{ url_for('enroll', course_id=course.id) }}" class="border-btn border-btn2">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% else %}
-            <p>You have not enrolled in any courses yet.</p>
-            {% endif %}
-        </div>
-    </div>
-    
-    {% endif %}
-    
-
-    </section>
-</main>
-<footer>
-    <div class="footer-wrappper footer-bg">
-       <div class="footer-bottom-area">
-           <div class="container">
-               <div class="footer-border">
-                   <div class="row d-flex align-items-center">
-                       <div class="col-xl-12 ">
-                           <div class="footer-copy-right text-center">
-                               <p>
-                                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-                                </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-</footer> 
-<div id="back-top" >
-    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-</div>
-<script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="static/assets/js/popper.min.js"></script>
-<script src="static/assets/js/bootstrap.min.js"></script>
-<script src="static/assets/js/jquery.slicknav.min.js"></script>
-<script src="static/assets/js/owl.carousel.min.js"></script>
-<script src="static/assets/js/slick.min.js"></script>
-<script src="static/assets/js/wow.min.js"></script>
-<script src="static/assets/js/animated.headline.js"></script>
-<script src="static/assets/js/jquery.magnific-popup.js"></script>
-<script src="static/assets/js/gijgo.min.js"></script>
-<script src="static/assets/js/jquery.nice-select.min.js"></script>
-<script src="static/assets/js/jquery.sticky.js"></script>
-<script src="static/assets/js/jquery.counterup.min.js"></script>
-<script src="static/assets/js/waypoints.min.js"></script>
-<script src="static/assets/js/jquery.countdown.min.js"></script>
-<script src="static/assets/js/hover-direction-snake.min.js"></script>
-<script src="static/assets/js/jquery.form.js"></script>
-<script src="static/assets/js/jquery.validate.min.js"></script>
-<script src="static/assets/js/mail-script.js"></script>
-<script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
-<script src="static/assets/js/plugins.js"></script>
-<script src="static/assets/js/main.js"></script>
+    <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="static/assets/js/popper.min.js"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/jquery.slicknav.min.js"></script>
+    <script src="static/assets/js/owl.carousel.min.js"></script>
+    <script src="static/assets/js/slick.min.js"></script>
+    <script src="static/assets/js/wow.min.js"></script>
+    <script src="static/assets/js/animated.headline.js"></script>
+    <script src="static/assets/js/jquery.magnific-popup.js"></script>
+    <script src="static/assets/js/gijgo.min.js"></script>
+    <script src="static/assets/js/jquery.nice-select.min.js"></script>
+    <script src="static/assets/js/jquery.sticky.js"></script>
+    <script src="static/assets/js/jquery.counterup.min.js"></script>
+    <script src="static/assets/js/waypoints.min.js"></script>
+    <script src="static/assets/js/jquery.countdown.min.js"></script>
+    <script src="static/assets/js/hover-direction-snake.min.js"></script>
+    <script src="static/assets/js/jquery.form.js"></script>
+    <script src="static/assets/js/jquery.validate.min.js"></script>
+    <script src="static/assets/js/mail-script.js"></script>
+    <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="static/assets/js/plugins.js"></script>
+    <script src="static/assets/js/main.js"></script>
+    {% include 'chatbot_widget.html' %}
 </body>
 </html>

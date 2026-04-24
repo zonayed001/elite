@@ -1,99 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicon.ico">
-    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/assets/css/slicknav.css">
-    <link rel="stylesheet" href="static/assets/css/flaticon.css">
-    <link rel="stylesheet" href="static/assets/css/progressbar_barfiller.css">
-    <link rel="stylesheet" href="static/assets/css/gijgo.css">
-    <link rel="stylesheet" href="static/assets/css/animate.min.css">
-    <link rel="stylesheet" href="static/assets/css/animated-headline.css">
-    <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="static/assets/css/slick.css">
-    <link rel="stylesheet" href="static/assets/css/nice-select.css">
-    <link rel="stylesheet" href="static/assets/css/style.css">
-    <style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="static/assets/img/favicon.ico">
+        <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/assets/css/slicknav.css">
+        <link rel="stylesheet" href="static/assets/css/flaticon.css">
+        <link rel="stylesheet" href="static/assets/css/progressbar_barfiller.css">
+        <link rel="stylesheet" href="static/assets/css/gijgo.css">
+        <link rel="stylesheet" href="static/assets/css/animate.min.css">
+        <link rel="stylesheet" href="static/assets/css/animated-headline.css">
+        <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/slick.css">
+        <link rel="stylesheet" href="static/assets/css/nice-select.css">
+        <link rel="stylesheet" href="static/assets/css/style.css">
+        <style>
         .login-body {
             background-color: #f0f8ff;
         }
         .login-form .form-input input[type="submit"] {
             line-height: 0;
         }
-    </style>
-</head>
-<body>
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="static/assets/img/loder/loder.png" alt="">
+        </style>
+    </head>
+    <body>
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="static/assets/img/loder/loder.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <main class="login-body">
-        <form class="form-default" action="{{ url_for('login') }}" method="POST">
-            <div class="login-form">
-                <div class="logo-login">
-                    <a href="/"><img src="static/assets/img/img/Elite.jpg" alt="Logo"></a>
+        <main class="login-body">
+            <form class="form-default" action="{{ url_for("login") }}" method="POST">
+                <div class="login-form">
+                    <div class="logo-login">
+                        <a href="/">
+                            <img src="static/assets/img/img/Elite.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <h2>Login Here</h2>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="container mt-4">
+                                {% for category, message in messages %}<div class="alert alert-{{ category }}">{{ message }}</div>{% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    <div class="form-input">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-input pt-30">
+                        <input type="submit" name="submit" value="Login" class="btn btn-primary">
+                    </div>
+                    <a href="{{ url_for("register") }}" class="registration">Register</a>
                 </div>
-                <h2>Login Here</h2>
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        <div class="container mt-4">
-                            {% for category, message in messages %}
-                                <div class="alert alert-{{ category }}">{{ message }}</div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endwith %}
-                <div class="form-input">
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-input">
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-input pt-30">
-                    <input type="submit" name="submit" value="Login" class="btn btn-primary">
-                </div>
-                <a href="{{ url_for('register') }}" class="registration">Register</a>
-            </div>
-        </form>
-    </main>
-    <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="static/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="static/assets/js/jquery.slicknav.min.js"></script>
-    <script src="static/assets/js/owl.carousel.min.js"></script>
-    <script src="static/assets/js/slick.min.js"></script>
-    <script src="static/assets/js/wow.min.js"></script>
-    <script src="static/assets/js/animated.headline.js"></script>
-    <script src="static/assets/js/jquery.magnific-popup.js"></script>
-    <script src="static/assets/js/gijgo.min.js"></script>
-    <script src="static/assets/js/jquery.nice-select.min.js"></script>
-    <script src="static/assets/js/jquery.sticky.js"></script>
-    <script src="static/assets/js/jquery.barfiller.js"></script>
-    <script src="static/assets/js/jquery.counterup.min.js"></script>
-    <script src="static/assets/js/waypoints.min.js"></script>
-    <script src="static/assets/js/jquery.countdown.min.js"></script>
-    <script src="static/assets/js/hover-direction-snake.min.js"></script>
-    <script src="static/assets/js/contact.js"></script>
-    <script src="static/assets/js/jquery.form.js"></script>
-    <script src="static/assets/js/jquery.validate.min.js"></script>
-    <script src="static/assets/js/mail-script.js"></script>
-    <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="static/assets/js/plugins.js"></script>
-    <script src="static/assets/js/main.js"></script>
-</body>
+            </form>
+        </main>
+        <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="static/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="static/assets/js/jquery.slicknav.min.js"></script>
+        <script src="static/assets/js/owl.carousel.min.js"></script>
+        <script src="static/assets/js/slick.min.js"></script>
+        <script src="static/assets/js/wow.min.js"></script>
+        <script src="static/assets/js/animated.headline.js"></script>
+        <script src="static/assets/js/jquery.magnific-popup.js"></script>
+        <script src="static/assets/js/gijgo.min.js"></script>
+        <script src="static/assets/js/jquery.nice-select.min.js"></script>
+        <script src="static/assets/js/jquery.sticky.js"></script>
+        <script src="static/assets/js/jquery.barfiller.js"></script>
+        <script src="static/assets/js/jquery.counterup.min.js"></script>
+        <script src="static/assets/js/waypoints.min.js"></script>
+        <script src="static/assets/js/jquery.countdown.min.js"></script>
+        <script src="static/assets/js/hover-direction-snake.min.js"></script>
+        <script src="static/assets/js/contact.js"></script>
+        <script src="static/assets/js/jquery.form.js"></script>
+        <script src="static/assets/js/jquery.validate.min.js"></script>
+        <script src="static/assets/js/mail-script.js"></script>
+        <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="static/assets/js/plugins.js"></script>
+        <script src="static/assets/js/main.js"></script>
+        {% include 'chatbot_widget.html' %}
+    </body>
 </html>

@@ -1,188 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js"">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Become An Instructor</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicon.ico">
-
-    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/assets/css/slicknav.css">
-    <link rel="stylesheet" href="static/assets/css/animate.min.css">
-    <link rel="stylesheet" href="static/assets/css/hamburgers.min.css">
-    <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="static/assets/css/slick.css">
-    <link rel="stylesheet" href="static/assets/css/nice-select.css">
-    <link rel="stylesheet" href="static/assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-</head>
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="static/assets/img/logo/loder.png" alt="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Become An Instructor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="static/assets/img/favicon.ico">
+        <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/assets/css/slicknav.css">
+        <link rel="stylesheet" href="static/assets/css/animate.min.css">
+        <link rel="stylesheet" href="static/assets/css/hamburgers.min.css">
+        <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/slick.css">
+        <link rel="stylesheet" href="static/assets/css/nice-select.css">
+        <link rel="stylesheet" href="static/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    </head>
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="static/assets/img/logo/loder.png" alt="">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="header-area header-transparent">
-    <div class="main-header ">
-        <div class="header-bottom  header-sticky">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo">
-                            <a href="/"><img src="static/assets/img/img/x.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-10 col-lg-10">
-                        <div class="menu-wrapper d-flex align-items-center justify-content-end">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">                                                                                          
-                                        <li class="active"><a href="/">Home</a></li>
-                                        {% if user %}
-                                            {% if not user.is_instructor %}
-                                                <li><a href="courses">Courses</a></li>
-                                                <li><a href="instructor">Instructor</a></li>
-                                                <li><a href="apply">Apply</a></li>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if 'user_id' in session %}
-                                            <li><a href="{{ url_for('profile') }}">profile</a></li>
-                                            <li class="button-header"><a href="{{ url_for('logout') }}" class="btn btn3">Log out</a></li>
-                                        {% else %}
-                                            <li class="button-header margin-left"><a href="register" class="btn">Join</a></li>
-                                            <li class="button-header"><a href="login" class="btn btn3">Log in</a></li>
-                                        {% endif %}
-                                    </ul>
-                                </nav>
+    <div class="header-area header-transparent">
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="static/assets/img/img/x.png" alt="">
+                                </a>
                             </div>
                         </div>
-                    </div> 
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li class="active">
+                                                <a href="/">Home</a>
+                                            </li>
+                                            {% if user %}
+                                                {% if not user.is_instructor %}
+                                                    <li>
+                                                        <a href="courses">Courses</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="instructor">Instructor</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="apply">Apply</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if 'user_id' in session %}
+                                                <li>
+                                                    <a href="{{ url_for("profile") }}">profile</a>
+                                                </li>
+                                                <li class="button-header">
+                                                    <a href="{{ url_for("logout") }}" class="btn btn3">Log out</a>
+                                                </li>
+                                            {% else %}
+                                                <li class="button-header margin-left">
+                                                    <a href="register" class="btn">Join</a>
+                                                </li>
+                                                <li class="button-header">
+                                                    <a href="login" class="btn btn3">Log in</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<main>
-    <section class="slider-area slider-area2" style="background-image: url('/static/assets/img/hero/h1_hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="slider-active slick-initialized slick-slider">
-            <div class="slick-list draggable">
-                <div class="slick-track" style="opacity: 1; width: 1920px;">
-                    <div class="single-slider slider-height2 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 1920px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="0">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-8 col-lg-11 col-md-12">
-                                    <div class="hero__caption hero__caption2">
-                                        <h1 data-animation="bounceIn" data-delay="0.2s" style="animation-delay: 0.2s;" class="">Apply Today</h1>
+    <main>
+        <section class="slider-area slider-area2"
+                 style="background-image: url('/static/assets/img/hero/h1_hero.png');
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat">
+            <div class="slider-active slick-initialized slick-slider">
+                <div class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1920px;">
+                        <div class="single-slider slider-height2 slick-slide slick-current slick-active"
+                             data-slick-index="0"
+                             aria-hidden="false"
+                             style="width: 1920px;
+                                    position: relative;
+                                    left: 0px;
+                                    top: 0px;
+                                    z-index: 999;
+                                    opacity: 1"
+                             tabindex="0">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-11 col-md-12">
+                                        <div class="hero__caption hero__caption2">
+                                            <h1 data-animation="bounceIn"
+                                                data-delay="0.2s"
+                                                style="animation-delay: 0.2s"
+                                                class="">Apply Today</h1>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title">Become An Instructor</h2>
+                    </div>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="container mt-4">
+                                {% for category, message in messages %}<div class="alert alert-{{ category }}">{{ message }}</div>{% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    <div class="col-lg-8">
+                        <form class="form-contact contact_form"
+                              action="{{ url_for("apply") }}"
+                              method="post"
+                              id="contactForm"
+                              novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               name="name"
+                                               id="name"
+                                               type="text"
+                                               value="{{ user.name }}"
+                                               readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               name="email"
+                                               id="email"
+                                               type="email"
+                                               value="{{ user.email }}"
+                                               readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="aboutMe">Details</label>
+                                <textarea class="form-control"
+                                          name="aboutMe"
+                                          id="aboutMe"
+                                          rows="4"
+                                          placeholder="Details..."></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-wrappper footer-bg">
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <section class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="contact-title">Become An Instructor</h2>
-                </div>
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    <div class="container mt-4">
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">{{ message }}</div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                {% endwith %}
-                <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{ url_for('apply') }}" method="post" id="contactForm" novalidate="novalidate">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control" name="name" id="name" type="text" value="{{ user.name }}" readonly>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email" value="{{ user.email }}" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="aboutMe">Details</label>
-                            <textarea class="form-control" name="aboutMe" id="aboutMe" rows="4" placeholder="Details..."></textarea>
-                        </div>
-                        <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-<footer>
-    <div class="footer-wrappper footer-bg">
-       <div class="footer-bottom-area">
-           <div class="container">
-               <div class="footer-border">
-                   <div class="row d-flex align-items-center">
-                       <div class="col-xl-12 ">
-                           <div class="footer-copy-right text-center">
-                               <p>
-                                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-                                </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-</footer> 
-<div id="back-top" >
-    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-</div>
-<script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="static/assets/js/popper.min.js"></script>
-<script src="static/assets/js/bootstrap.min.js"></script>
-<script src="static/assets/js/jquery.slicknav.min.js"></script>
-<script src="static/assets/js/owl.carousel.min.js"></script>
-<script src="static/assets/js/slick.min.js"></script>
-<script src="static/assets/js/wow.min.js"></script>
-<script src="static/assets/js/animated.headline.js"></script>
-<script src="static/assets/js/jquery.magnific-popup.js"></script>
-<script src="static/assets/js/gijgo.min.js"></script>
-<script src="static/assets/js/jquery.nice-select.min.js"></script>
-<script src="static/assets/js/jquery.sticky.js"></script>
-<script src="static/assets/js/jquery.counterup.min.js"></script>
-<script src="static/assets/js/waypoints.min.js"></script>
-<script src="static/assets/js/jquery.countdown.min.js"></script>
-<script src="static/assets/js/hover-direction-snake.min.js"></script>
-<script src="static/assets/js/jquery.form.js"></script>
-<script src="static/assets/js/jquery.validate.min.js"></script>
-<script src="static/assets/js/mail-script.js"></script>
-<script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
-<script src="static/assets/js/plugins.js"></script>
-<script src="static/assets/js/main.js"></script>
+    </footer>
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="static/assets/js/popper.min.js"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/jquery.slicknav.min.js"></script>
+    <script src="static/assets/js/owl.carousel.min.js"></script>
+    <script src="static/assets/js/slick.min.js"></script>
+    <script src="static/assets/js/wow.min.js"></script>
+    <script src="static/assets/js/animated.headline.js"></script>
+    <script src="static/assets/js/jquery.magnific-popup.js"></script>
+    <script src="static/assets/js/gijgo.min.js"></script>
+    <script src="static/assets/js/jquery.nice-select.min.js"></script>
+    <script src="static/assets/js/jquery.sticky.js"></script>
+    <script src="static/assets/js/jquery.counterup.min.js"></script>
+    <script src="static/assets/js/waypoints.min.js"></script>
+    <script src="static/assets/js/jquery.countdown.min.js"></script>
+    <script src="static/assets/js/hover-direction-snake.min.js"></script>
+    <script src="static/assets/js/jquery.form.js"></script>
+    <script src="static/assets/js/jquery.validate.min.js"></script>
+    <script src="static/assets/js/mail-script.js"></script>
+    <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="static/assets/js/plugins.js"></script>
+    <script src="static/assets/js/main.js"></script>
+    {% include 'chatbot_widget.html' %}
 </body>
 </html>

@@ -7,7 +7,7 @@ dnspython==2.7.0
 Flask==3.0.3
 Flask-SocketIO==5.4.1
 Flask-SQLAlchemy==3.1.1
-greenlet==3.1.1
+greenlet>=3.2.0
 h11==0.14.0
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -20,5 +20,6 @@ simple-websocket==1.1.0
 soupsieve==2.6
 SQLAlchemy==2.0.36
 typing_extensions==4.12.2
+requests==2.32.3
 Werkzeug==3.1.2
 wsproto==1.2.0

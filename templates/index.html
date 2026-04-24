@@ -1,824 +1,905 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js"">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Home</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="manifest" href="site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicon.ico">
-      <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="static/assets/css/slicknav.css">
-      <link rel="stylesheet" href="static/assets/css/flaticon.css">
-      <link rel="stylesheet" href="static/assets/css/progressbar_barfiller.css">
-      <link rel="stylesheet" href="static/assets/css/gijgo.css">
-      <link rel="stylesheet" href="static/assets/css/animate.min.css">
-      <link rel="stylesheet" href="static/assets/css/animated-headline.css">
-      <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
-      <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
-      <link rel="stylesheet" href="static/assets/css/themify-icons.css">
-      <link rel="stylesheet" href="static/assets/css/slick.css">
-      <link rel="stylesheet" href="static/assets/css/nice-select.css">
-      <link rel="stylesheet" href="static/assets/css/style.css">
-   </head>
-   <body>
-      <div id="preloader-active">
-         <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-               <div class="preloader-circle"></div>
-               <div class="preloader-img pere-text">
-                  <img src="static/assets/img/logo/loder.png" alt="">
-               </div>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="static/assets/img/favicon.ico">
+        <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/assets/css/slicknav.css">
+        <link rel="stylesheet" href="static/assets/css/flaticon.css">
+        <link rel="stylesheet" href="static/assets/css/progressbar_barfiller.css">
+        <link rel="stylesheet" href="static/assets/css/gijgo.css">
+        <link rel="stylesheet" href="static/assets/css/animate.min.css">
+        <link rel="stylesheet" href="static/assets/css/animated-headline.css">
+        <link rel="stylesheet" href="static/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="static/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="static/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="static/assets/css/slick.css">
+        <link rel="stylesheet" href="static/assets/css/nice-select.css">
+        <link rel="stylesheet" href="static/assets/css/style.css">
+    </head>
+    <body>
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="static/assets/img/logo/loder.png" alt="">
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <header>
-         <div class="header-area header-transparent" >
-            <div class="main-header ">
-               <div class="header-bottom  header-sticky">
-                  <div class="container-fluid">
-                     <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-2">
-                           <div class="logo">
-                              <a href="/"><img src="static/assets/img/img/x.png" alt=""></a>
-                           </div>
-                        </div>
-                        <div class="col-xl-10 col-lg-10">
-                           <div class="menu-wrapper d-flex align-items-center justify-content-end">
-                              <div class="main-menu d-none d-lg-block">
-                                 <nav>
-                                     <ul id="navigation">                                                                                          
-                                         <li class="active"><a href="/">Home</a></li>
-                                         {% if user %}
-                                             {% if not user.is_instructor %}
-                                                 <li><a href="courses">Courses</a></li>
-                                                 <li><a href="instructor">Instructor</a></li>
-                                                <li><a href="apply">Apply</a></li>
-                                             {% endif %}
-                                         {% endif %}
-                                         {% if 'user_id' in session %}
-                                             <li><a href="{{ url_for('profile') }}">profile</a></li>
-                                             <li class="button-header"><a href="{{ url_for('logout') }}" class="btn btn3">Log out</a></li>
-                                         {% else %}
-                                             <li class="button-header margin-left"><a href="register" class="btn">Join</a></li>
-                                             <li class="button-header"><a href="login" class="btn btn3">Log in</a></li>
-                                         {% endif %}
-                                     </ul>
-                                 </nav>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
-      <main>
-         <section class="slider-area ">
-            <div class="slider-active">
-               <div class="single-slider slider-height d-flex align-items-center">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col-xl-6 col-lg-7 col-md-12">
-                           <div class="hero__caption">
-                              <h1 data-animation="fadeInLeft" data-delay="0.2s">Online learning<br> platform</h1>
-                              <p data-animation="fadeInLeft" data-delay="0.4s">Build skills with courses, certificates, and degrees online from world-class universities and companies</p>
-                              <a href="courses" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Courses</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <div class="services-area">
-            <div class="container">
-               <div class="row justify-content-sm-center">
-                  <div class="col-lg-4 col-md-6 col-sm-8">
-                     <div class="single-services mb-30">
-                        <div class="features-icon">
-                           <img src="static/assets/img/icon/icon1.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                           <h3>60+ Fullstack Development Courses</h3>
-                           <p>Master both frontend and backend to become a fullstack developer.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-8">
-                     <div class="single-services mb-30">
-                        <div class="features-icon">
-                           <img src="static/assets/img/icon/icon2.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                           <h3>Expert Instructors</h3>
-                           <p>Learn from industry professionals with real-world experience in fullstack development.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-8">
-                     <div class="single-services mb-30">
-                        <div class="features-icon">
-                           <img src="static/assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                           <h3>Lifetime Access</h3>
-                           <p>Access all your courses and materials anytime, forever. Learn at your own pace.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="courses-area section-padding40 fix">
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-xl-7 col-lg-8">
-                     <div class="section-tittle text-center mb-55">
-                        <h2>Top Instructors</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="courses-actives">
-                  {% for instructor in instructors %}
-                  <div class="properties pb-20">
-                     <div class="properties__card">
-                        <div class="properties__img overlay1">
-                           <a href="#"><img src="{{ url_for('static', filename=instructor.profile_picture) }}" alt=""></a>
-                        </div>
-                        <div class="properties__caption">
-                           <p>Instructor</p>
-                           <h3><a href="#">{{ instructor.name }}</a></h3>
-                           <p>{{ instructor.bio }}</p>
-                           </p>
-                           <div class="properties__footer d-flex justify-content-between align-items-center">
-                              <div class="restaurant-name">
-                                 <div class="rating">
-                                    <div class="rating-stars">
-                                       {% for i in range(5) %}
-                                       <i class="fas fa-star {% if i < instructor.rating|round %}filled{% endif %}"></i>
-                                       {% endfor %}
+        </div>
+        <header>
+            <div class="header-area header-transparent">
+                <div class="main-header ">
+                    <div class="header-bottom  header-sticky">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-xl-2 col-lg-2">
+                                    <div class="logo">
+                                        <a href="/">
+                                            <img src="static/assets/img/img/x.png" alt="">
+                                        </a>
                                     </div>
-                                    <p><span>({{ instructor.rating }})</span> based on {{ instructor.courses_count }} courses</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <a href="{{ url_for('courses') }}" class="border-btn border-btn2">Find out more</a>
+                                </div>
+                                <div class="col-xl-10 col-lg-10">
+                                    <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                        <div class="main-menu d-none d-lg-block">
+                                            <nav>
+                                                <ul id="navigation">
+                                                    <li class="active">
+                                                        <a href="/">Home</a>
+                                                    </li>
+                                                    {% if user %}
+                                                        {% if not user.is_instructor %}
+                                                            <li>
+                                                                <a href="courses">Courses</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="instructor">Instructor</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="apply">Apply</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    {% if 'user_id' in session %}
+                                                        <li>
+                                                            <a href="{{ url_for("profile") }}">profile</a>
+                                                        </li>
+                                                        <li class="button-header">
+                                                            <a href="{{ url_for("logout") }}" class="btn btn3">Log out</a>
+                                                        </li>
+                                                    {% else %}
+                                                        <li class="button-header margin-left">
+                                                            <a href="register" class="btn">Join</a>
+                                                        </li>
+                                                        <li class="button-header">
+                                                            <a href="login" class="btn btn3">Log in</a>
+                                                        </li>
+                                                    {% endif %}
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mobile_menu d-block d-lg-none"></div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  {% endfor %}
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <section class="about-area1 fix pt-10">
+        </header>
+        <main>
+            <section class="slider-area ">
+                <div class="slider-active">
+                    <div class="single-slider slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-7 col-md-12">
+                                    <div class="hero__caption">
+                                        <h1 data-animation="fadeInLeft" data-delay="0.2s">
+                                            Online learning
+                                            <br>
+                                            platform
+                                        </h1>
+                                        <p data-animation="fadeInLeft" data-delay="0.4s">
+                                            Build skills with courses, certificates, and degrees online from world-class universities and companies
+                                        </p>
+                                        <a href="courses"
+                                           class="btn hero-btn"
+                                           data-animation="fadeInLeft"
+                                           data-delay="0.7s">Courses</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="services-area">
+                <div class="container">
+                    <div class="row justify-content-sm-center">
+                        <div class="col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-services mb-30">
+                                <div class="features-icon">
+                                    <img src="static/assets/img/icon/icon1.svg" alt="">
+                                </div>
+                                <div class="features-caption">
+                                    <h3>60+ Fullstack Development Courses</h3>
+                                    <p>Master both frontend and backend to become a fullstack developer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-services mb-30">
+                                <div class="features-icon">
+                                    <img src="static/assets/img/icon/icon2.svg" alt="">
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Expert Instructors</h3>
+                                    <p>Learn from industry professionals with real-world experience in fullstack development.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-services mb-30">
+                                <div class="features-icon">
+                                    <img src="static/assets/img/icon/icon3.svg" alt="">
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Lifetime Access</h3>
+                                    <p>Access all your courses and materials anytime, forever. Learn at your own pace.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="courses-area section-padding40 fix">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7 col-lg-8">
+                            <div class="section-tittle text-center mb-55">
+                                <h2>Top Instructors</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="courses-actives">
+                        {% for instructor in instructors %}
+                            <div class="properties pb-20">
+                                <div class="properties__card">
+                                    <div class="properties__img overlay1">
+                                        <a href="#">
+                                            <img src="{{ url_for('static', filename=instructor.profile_picture) }}"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                    <div class="properties__caption">
+                                        <p>Instructor</p>
+                                        <h3>
+                                            <a href="#">{{ instructor.name }}</a>
+                                        </h3>
+                                        <p>{{ instructor.bio }}</p>
+                                    </p>
+                                    <div class="properties__footer d-flex justify-content-between align-items-center">
+                                        <div class="restaurant-name">
+                                            <div class="rating">
+                                                <div class="rating-stars">
+                                                    {% for i in range(5) %}
+                                                        <i class="fas fa-star {% if i < instructor.rating|round %}filled{% endif %}"></i>
+                                                    {% endfor %}
+                                                </div>
+                                                <p>
+                                                    <span>({{ instructor.rating }})</span> based on {{ instructor.courses_count }} courses
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ url_for("courses") }}" class="border-btn border-btn2">Find out more</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <section class="about-area1 fix pt-10">
             <div class="support-wrapper align-items-center">
-               <div class="left-content1">
-                  <div class="section-tittle section-tittle2 mb-55">
-                     <div class="front-text">
-                        <h2 class="">Learning Roadmap</h2>
-                        <p>By following our roadmap you can a professional developer.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="right-content1">
-                  <div class="right-img">
-                     <img src="static/assets/img/img/roadmap-to-become-a-fullstack-developer.jpg" alt="">
-                     <div class="video-icon" >
-                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=l6hjm7kFcPo"><i class="fas fa-play"></i></a>
-                     </div>
-                  </div>
-               </div>
+                <div class="left-content1">
+                    <div class="section-tittle section-tittle2 mb-55">
+                        <div class="front-text">
+                            <h2 class="">Learning Roadmap</h2>
+                            <p>By following our roadmap you can a professional developer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-content1">
+                    <div class="right-img">
+                        <img src="static/assets/img/img/roadmap-to-become-a-fullstack-developer.jpg"
+                             alt="">
+                        <div class="video-icon">
+                            <a class="popup-video btn-icon"
+                               href="https://www.youtube.com/watch?v=l6hjm7kFcPo"><i class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </section>
-         <section class="about-area1 fix pt-10">
+        </section>
+        <section class="about-area1 fix pt-10">
             <div class="support-wrapper align-items-center">
-               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-605 -300 1042 2258" style="font-family: balsamiq" version="1.1">
-                  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="PShueM-HfMGu2Jy1dt73g" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-504.08230823147517 -124.89091544360696L-504.08230823147517 -104.89091544360696L -504.08230823147517,62.904587772901664Q -504.08230823147517,67.90458777290166 -499.08230823147517,67.90458777290166L-415.56446376179997 67.90458777290166L-395.56446376179997 67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-iogwMmOvub2ZF4zgg6WyFx2-mGgx_QTEPmVKf6AijX9fiy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-291.56446376179997,67.90458777290166 C-271.56446376179997,67.90458777290166 -271.56446376179997,67.90458777290166 -251.56446376179997,67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-B0kARTODvCBi0iOF8iiqIz2-mGgx_QTEPmVKf6AijX9fiy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M152.00948964805815 67.90458777290166L172.00948964805815 67.90458777290166L 343.1821043313223,67.90458777290166Q 348.1821043313223,67.90458777290166 348.1821043313223,72.90458777290166L348.1821043313223 113.40458777290166L348.1821043313223 133.40458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-khoUtTUxdf8udAzN9_CAbz2-mGgx_QTEPmVKf6AijX9fiw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-151.56446376179997,67.90458777290166 C-61.77748705687091,67.90458777290166 -61.77748705687091,67.90458777290166 28.00948964805815,67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-dAJHWmGeiYdzZ1ZjrWz1Sz2-khoUtTUxdf8udAzN9_CAby2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M348.1821043313223 182.40458777290166L348.1821043313223 202.40458777290166L 348.1821043313223,335.90458777290166Q 348.1821043313223,340.90458777290166 343.1821043313223,340.90458777290166L282.00948964805815 340.90458777290166L262.00948964805815 340.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-mGgx_QTEPmVKf6AijX9fix2-We2APJpOPTr-VNfowG0kIz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M162.00948964805815,340.90458777290166 C121.22251294312909,340.90458777290166 121.22251294312909,340.90458777290166 80.43553623820003,340.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-We2APJpOPTr-VNfowG0kIy2-khoUtTUxdf8udAzN9_CAbz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-19.56446376179997,340.90458777290166 C-102.02126669658776,340.90458777290166 -102.02126669658776,339.90458777290166 -184.47806963137555,339.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-8sPXL8iClpPqje03kssesy2-khoUtTUxdf8udAzN9_CAbz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-329.47806963137555,339.90458777290166 C-337.1479826500266,339.90458777290166 -337.1479826500266,339.90458777290166 -344.8178956686777,339.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5uy2-khoUtTUxdf8udAzN9_CAbz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-444.8178956686777 339.90458777290166L-464.8178956686777 339.90458777290166L -497.08230823147517,339.90458777290166Q -502.08230823147517,339.90458777290166 -502.08230823147517,344.90458777290166L -502.08230823147517,594.9045877729017Q -502.08230823147517,599.9045877729017 -497.08230823147517,599.9045877729017L-482.08230823147517 599.9045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-khoUtTUxdf8udAzN9_CAby2-QfW-odmDYknm_qXNcDu5oy1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-218.08230823147517,599.9045877729017 C-105.53640929170851,599.9045877729017 -105.53640929170851,599.4045877729017 7.00948964805815,599.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-QfW-odmDYknm_qXNcDu5oz2-2kKHuQZScu7hCDgQWxl5uy1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M334.52193036862445 765.9045877729017L334.52193036862445 785.9045877729017L 334.52193036862445,867.4045877729017Q 334.52193036862445,872.4045877729017 329.52193036862445,872.4045877729017L52.61857813823781 872.4045877729017L32.61857813823781 872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5ux2-cUOfvOlQ_0Uu1VX3i67kJz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-117.38142186176219,872.4045877729017 C-126.22294281178108,872.4045877729017 -126.22294281178108,872.4045877729017 -135.06446376179997,872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-vmHbWdmMHF53otXIrqzRVy2-cUOfvOlQ_0Uu1VX3i67kJz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-257.06446376179997,872.4045877729017 C-308.57338599663757,872.4045877729017 -308.57338599663757,872.4045877729017 -360.08230823147517,872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-vHojhJYjiN0IwruEqi1Dvy2-cUOfvOlQ_0Uu1VX3i67kJz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-460.08230823147517 872.4045877729017L-480.08230823147517 872.4045877729017L -499.08230823147517,872.4045877729017Q -504.08230823147517,872.4045877729017 -504.08230823147517,877.4045877729017L-504.08230823147517 1125.3143775154215L-504.08230823147517 1145.3143775154215" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-Onfd7Sl8LG2sjh2aQY7gby2-cUOfvOlQ_0Uu1VX3i67kJw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-431.58230823147517,1169.8143775154215 C-336.6433239041644,1169.8143775154215 -336.6433239041644,1169.8143775154215 -241.7043395768536,1169.8143775154215" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-SHTSvMDqI7X1_ZT7-m--nz2-cUOfvOlQ_0Uu1VX3i67kJy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-32.70433957685361 1169.8143775154215L-12.704339576853613 1169.8143775154215L 329.52193036862445,1169.8143775154215Q 334.52193036862445,1169.8143775154215 334.52193036862445,1174.8143775154215L334.52193036862445 1246.5238331844262L334.52193036862445 1266.5238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-cUOfvOlQ_0Uu1VX3i67kJz2-2kKHuQZScu7hCDgQWxl5uw2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M152.00948964805815 599.4045877729017L172.00948964805815 599.4045877729017L 329.52193036862445,599.4045877729017Q 334.52193036862445,599.4045877729017 334.52193036862445,604.4045877729017L334.52193036862445 696.9045877729017L334.52193036862445 716.9045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-_aA6Hp4KkgJeptqo8oKTgz2-HGhnbMg6jh6cAmUH4DtOxw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M334.52193036862445 1315.5238331844262L334.52193036862445 1335.5238331844262L 334.52193036862445,1412.0238331844262Q 334.52193036862445,1417.0238331844262 329.52193036862445,1417.0238331844262L282.00948964805815 1417.0238331844262L262.00948964805815 1417.0238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-y1SFX7uvWaCy4OYBnECLux2-2kKHuQZScu7hCDgQWxl5uz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M103.00948964805815,1417.0238331844262 C-61.77748705687091,1417.0238331844262 -61.77748705687091,1417.0238331844262 -226.56446376179997,1417.0238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-863KMXcFJzInvTp_-Ldmzy2-2kKHuQZScu7hCDgQWxl5uz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-327.56446376179997 1417.0238331844262L-347.56446376179997 1417.0238331844262L -495.08230823147517,1417.0238331844262Q -500.08230823147517,1417.0238331844262 -500.08230823147517,1422.0238331844262L-500.08230823147517 1448.728630371825L-500.08230823147517 1468.728630371825" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-rFXupYpUFfp7vZO8zh614y2-2kKHuQZScu7hCDgQWxl5uw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <path d="M-500.08230823147517 1517.728630371825L-500.08230823147517 1537.728630371825L -500.08230823147517,1626.8717081664122Q -500.08230823147517,1631.8717081664122 -495.08230823147517,1631.8717081664122L -31.78332913299596,1631.8717081664122Q -26.78332913299596,1631.8717081664122 -26.78332913299596,1636.8717081664122L-26.78332913299596 1726.0147859609992L-26.78332913299596 1746.0147859609992" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5ux2-sVXZrBCsiSzWBBYWTm-nQw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
-                  <g data-node-id="yrZUjoNj7mjOHaZVRiFJV" data-type="horizontal">
-                     <line x1="-502.08230823147517" y1="507.90458777290166" x2="-440.08230823147517" y2="507.90458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="kPPgIGhyoDoJoUJnP-vOY" data-type="section">
-                     <rect x="46.009212053078706" y="-124.15228984395415" width="352.3" height="100.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
-                     <text x="44.659212053078704" y="-133.50228984395414" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
-                        <tspan></tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="tmRyxL2cIei7PVHdOvmuJ" data-type="horizontal">
-                     <line x1="253.00948964805815" y1="1225.2210153640276" x2="337.00948964805815" y2="1225.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="Ju00mr0KLGN2BV6yEQGPt" data-type="vertical">
-                     <line x1="-35.86972326342038" y1="1834.052389726952" x2="-35.86972326342038" y2="1938.052389726952" style="stroke-linecap: round; stroke-width: 3.5; stroke: #4136D4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="sVXZrBCsiSzWBBYWTm-nQ" data-type="paragraph">
-                     <rect x="-251.93332913299596" y="1747.3647859609991" width="453" height="121.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
-                     <text fill="black">
-                        <tspan x="-26.78332913299596" y="1776.1147859609994" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Continue Learning with following relevant tracks</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="iogwMmOvub2ZF4zgg6WyF" data-type="title" data-title="Full Stack">
-                     <text x="-504.08230823147517" y="-158.89091544360696" text-anchor="middle" dominant-baseline="middle" font-size="28" fill="black">
-                        <tspan>Full Stack</tspan>
-                     </text>
-                  </g>
-                  <g data-link="https://roadmap.sh/frontend" data-node-id="sQsxo9QyLKZyhMnFUcxhS" data-type="button">
-                     <rect x="-234.5197232634204" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
-                     <text x="-184.36972326342038" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
-                        <tspan>Frontend</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="LEijbLyxg4RyutKEM2Y5g" data-type="vertical">
-                     <line x1="-504.08230823147517" y1="-273.89091544360696" x2="-504.08230823147517" y2="-192.89091544360696" style="stroke-linecap: round; stroke-width: 3.5; stroke: #0A33FF; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="B0kARTODvCBi0iOF8iiqI" data-type="topic" data-title="HTML" data-parent-id="iogwMmOvub2ZF4zgg6WyF" data-parent-title="Full Stack">
-                     <rect x="-394.21446376179995" y="44.754587772901665" width="101.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-343.56446376179997" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>HTML</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="dAJHWmGeiYdzZ1ZjrWz1S" data-type="topic" data-title="CSS" data-parent-id="B0kARTODvCBi0iOF8iiqI" data-parent-title="HTML">
-                     <rect x="-250.21446376179998" y="44.754587772901665" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-201.56446376179997" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>CSS</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="T9PB6WQf-Fa9NXKKvVOy_" data-type="topic" data-title="JavaScript" data-parent-id="dAJHWmGeiYdzZ1ZjrWz1S" data-parent-title="CSS">
-                     <rect x="29.35948964805815" y="44.754587772901665" width="121.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="90.00948964805815" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>JavaScript</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="mGgx_QTEPmVKf6AijX9fi" data-type="topic" data-title="npm" data-parent-id="T9PB6WQf-Fa9NXKKvVOy_" data-parent-title="JavaScript">
-                     <rect x="299.53210433132233" y="134.75458777290166" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="348.1821043313223" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>npm</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="WsdUAEaI7FX6DKKhPXUHp" data-type="subtopic" data-title="Checkpoint - Static Webpages">
-                     <rect x="-350.6280696313755" y="134.75458777290166" width="287.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-206.97806963137555" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint - Static Webpages</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="arAWBttFmMY6g99PcEaeA" data-type="vertical">
-                     <line x1="-107.38142186176219" y1="69.40458777290166" x2="-107.38142186176219" y2="133.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="2DFzoIUjKdAKGjfu_SCfa" data-type="subtopic" data-title="Checkpoint - Interactivity">
-                     <rect x="-22.64051035194185" y="134.75458777290166" width="283.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="119.00948964805815" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint - Interactivity</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="CVVeXklBu8uEr7oyiSEhQ" data-type="vertical">
-                     <line x1="201.6185781382378" y1="71.40458777290166" x2="201.6185781382378" y2="133.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="We2APJpOPTr-VNfowG0kI" data-type="topic" data-title="Git" data-parent-id="mGgx_QTEPmVKf6AijX9fi" data-parent-title="npm">
-                     <rect x="163.35948964805814" y="317.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="212.00948964805815" y="343.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Git</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="8sPXL8iClpPqje03ksses" data-type="topic" data-title="GitHub" data-parent-id="We2APJpOPTr-VNfowG0kI" data-parent-title="Git">
-                     <rect x="-18.21446376179997" y="317.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="30.43553623820003" y="343.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>GitHub</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="R4aeJNOrfWyVp3ea-qF4H" data-type="subtopic" data-title="Checkpoint - External Packages">
-                     <rect x="-25.628069631375546" y="216.75458777290166" width="286.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="117.52193036862445" y="242.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint - External Packages</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="PW10DTLV-5U2ue770SXtM" data-type="horizontal">
-                     <line x1="262.02193036862445" y1="239.90458777290166" x2="346.02193036862445" y2="239.90458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="CVCqdPkq_hGQfI8EEi5RC" data-type="topic" data-title="Tailwind CSS" data-parent-id="8sPXL8iClpPqje03ksses" data-parent-title="GitHub">
-                     <rect x="-328.1280696313755" y="316.7545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-256.97806963137555" y="342.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Tailwind CSS</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="khoUtTUxdf8udAzN9_CAb" data-type="topic" data-title="React" data-parent-id="CVCqdPkq_hGQfI8EEi5RC" data-parent-title="Tailwind CSS">
-                     <rect x="-443.46789566867767" y="316.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-394.8178956686777" y="342.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>React</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="zFGWxgLPcZoW7KIzlnSV9" data-type="subtopic" data-title="Checkpoint - Collaborative Work">
-                     <rect x="-349.6280696313755" y="216.75458777290166" width="286.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-206.47806963137555" y="242.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint - Collaborative Work</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="8MhESAMICF6j7X3RL9bFE" data-type="vertical">
-                     <line x1="-107.38142186176219" y1="265.40458777290166" x2="-107.38142186176219" y2="338.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="H63WyNiiJ2Yr9HWs98EjR" data-type="paragraph">
-                     <rect x="-458.1280696313755" y="398.2545877729017" width="275" height="60.3" rx="5" fill="TRANSPARENT" stroke="transparent" stroke-width="2.7"></rect>
-                     <text fill="#000000">
-                        <tspan x="-321.97806963137555" y="415.65458777290166" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Feel free to skip these and</tspan>
-                        <tspan x="-321.97806963137555" y="415.65458777290166" dy="25.5" text-anchor="middle" dominant-baseline="middle" font-size="17">revisit after learning Backend</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="QfW-odmDYknm_qXNcDu5o" data-type="paragraph">
-                     <rect x="-480.73230823147514" y="577.2545877729017" width="264" height="45.3" rx="5" fill="#ffffff" stroke="transparent" stroke-width="2.7"></rect>
-                     <text fill="#000000">
-                        <tspan x="-350.08230823147517" y="599.9045877729017" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Start Backend Development</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="7JU1cVggMDoZUV-adGsf-" data-type="subtopic" data-title="Checkpoint - Frontend Apps">
-                     <rect x="-442.1280696313755" y="484.7545877729017" width="256.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-313.97806963137555" y="510.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint - Frontend Apps</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="_aA6Hp4KkgJeptqo8oKTg" data-type="topic" data-title="Node.js" data-parent-id="QfW-odmDYknm_qXNcDu5o" data-parent-title="Start Backend Development">
-                     <rect x="8.35948964805815" y="576.2545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="79.50948964805815" y="601.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Node.js</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="qCV1wiNSXj4OSHyMqxRIK" data-type="paragraph">
-                     <rect x="-25.628069631375546" y="432.7545877729017" width="444" height="98.3" rx="5" fill="TRANSPARENT" stroke="transparent" stroke-width="2.7"></rect>
-                     <text fill="#000000">
-                        <tspan x="-8.278069631375548" y="456.4045877729016" dy="0" text-anchor="start" dominant-baseline="middle" font-size="17">You can pick any backend programming language.</tspan>
-                        <tspan x="-8.278069631375548" y="456.4045877729016" dy="25.5" text-anchor="start" dominant-baseline="middle" font-size="17">My recommendation is Node.js because you are</tspan>
-                        <tspan x="-8.278069631375548" y="456.4045877729016" dy="51" text-anchor="start" dominant-baseline="middle" font-size="17">already familiar with JavaScript and it's easier to pick.</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="0QKpvDD33C3WCmNGtRanp" data-type="vertical">
-                     <line x1="-94.20433957685361" y1="531.9045877729017" x2="-94.20433957685361" y2="661.9045877729017" style="stroke-linecap: round; stroke-width: 3; stroke: #000000; stroke-dasharray: 0;"></line>
-                  </g>
-                  <g data-node-id="WqNcVZ8IkyqEubdd9JCa1" data-type="label">
-                     <text x="-273.06446376179997" y="654.9045877729017" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
-                        <tspan>Backend Starts here</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="JGu0TKwAw-ieiG92BytYI" data-type="subtopic" data-title="Checkpoint — CLI Apps">
-                     <rect x="-46.64051035194185" y="653.2545877729017" width="298.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="102.50948964805815" y="678.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — CLI Apps</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="o72NM00uoHXswkadhqVVW" data-type="horizontal">
-                     <line x1="253.00948964805815" y1="676.4045877729017" x2="337.00948964805815" y2="676.4045877729017" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="vmHbWdmMHF53otXIrqzRV" data-type="topic" data-title="RESTful APIs" data-parent-id="HGhnbMg6jh6cAmUH4DtOx" data-parent-title="PostgreSQL">
-                     <rect x="-116.0314218617622" y="849.2545877729017" width="147.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-42.38142186176219" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>RESTful APIs</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="3EtGLO6cwkLc1-o9gwFNk" data-type="subtopic" data-title="Checkpoint — Simple CRUD Apps">
-                     <rect x="-48.640510351941906" y="781.0710153640276" width="300.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="101.50948964805809" y="806.3710153640276" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Simple CRUD Apps</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="BQV2ycD-EnmssO1idTgx9" data-type="horizontal">
-                     <line x1="253.00948964805815" y1="804.2210153640276" x2="337.00948964805815" y2="804.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="vHojhJYjiN0IwruEqi1Dv" data-type="topic" data-title="JWT Auth" data-parent-id="vmHbWdmMHF53otXIrqzRV" data-parent-title="RESTful APIs">
-                     <rect x="-255.71446376179998" y="849.2545877729017" width="119.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-196.06446376179997" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>JWT Auth</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="Onfd7Sl8LG2sjh2aQY7gb" data-type="topic" data-title="Redis" data-parent-id="vHojhJYjiN0IwruEqi1Dv" data-parent-title="JWT Auth">
-                     <rect x="-458.73230823147514" y="849.2545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-410.08230823147517" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Redis</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="SHTSvMDqI7X1_ZT7-m--n" data-type="topic" data-title="Linux Basics" data-parent-id="Onfd7Sl8LG2sjh2aQY7gb" data-parent-title="Redis">
-                     <rect x="-575.2323082314751" y="1146.6643775154214" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-504.08230823147517" y="1171.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Linux Basics</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="gSUWhfd0DQoJjDpHEkk0i" data-type="horizontal">
-                     <line x1="-504.47806963137555" y1="980.0850398450953" x2="-405.47806963137555" y2="980.0850398450953" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="v4NF25lJElAtkU0Rm6Fob" data-type="subtopic" data-title="Checkpoint — Complete App">
-                     <rect x="-458.1280696313755" y="956.9350398450953" width="261.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-327.47806963137555" y="982.2350398450952" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Complete App</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="Oav7YPRBmsE1gVhEURckg" data-type="horizontal">
-                     <line x1="-560.0823082314752" y1="1047.8143775154215" x2="-318.08230823147517" y2="1047.8143775154215" style="stroke-linecap: round; stroke-width: 3; stroke: #000000; stroke-dasharray: 0;"></line>
-                  </g>
-                  <g data-node-id="Dj2QhtEuuIgKc2CvgFGyK" data-type="label">
-                     <text x="-463.2578102157039" y="1075.3143775154215" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
-                        <tspan>DevOps starts here</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="cUOfvOlQ_0Uu1VX3i67kJ" data-type="topic" data-title="Basic AWS Services" data-parent-id="SHTSvMDqI7X1_ZT7-m--n" data-parent-title="Linux Basics">
-                     <rect x="-240.35433957685362" y="1146.6643775154214" width="206.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-137.2043395768536" y="1171.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Basic AWS Services</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="6oBIxYj8WPcUHidQ99tus" data-type="subtopic" data-title="EC2">
-                     <rect x="-238.21446376179998" y="1088.6643775154214" width="67.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
-                     <text x="-204.56446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>EC2</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="QtL-bLKtWIdH00K6k_PdC" data-type="subtopic" data-title="VPC">
-                     <rect x="-164.21446376179998" y="1088.6643775154214" width="67.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
-                     <text x="-130.56446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>VPC</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="5zyYpu9cyuTFwQCjTbHpS" data-type="subtopic" data-title="Route53">
-                     <rect x="-238.21446376179998" y="1033.6643775154214" width="100.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
-                     <text x="-188.06446376179997" y="1059.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Route53</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="B-cphY7Imnv6JBMujVIF7" data-type="subtopic" data-title="SES">
-                     <rect x="-132.35433957685362" y="1033.6643775154214" width="97.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
-                     <text x="-83.70433957685361" y="1059.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>SES</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="n2Xp_ijJ2OS8xhE7xMWxk" data-type="subtopic" data-title="S3">
-                     <rect x="-90.21446376179998" y="1088.6643775154214" width="56.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
-                     <text x="-62.06446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>S3</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="fKzuMTsf6XL_0Ik6t8SAX" data-type="paragraph">
-                     <rect x="59.84718479195076" y="925.1643775154215" width="341" height="136.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
-                     <text fill="#000000">
-                        <tspan x="77.19718479195076" y="955.0643775154215" dy="0" text-anchor="start" dominant-baseline="middle" font-size="17">Use the checkpoints and do not forget</tspan>
-                        <tspan x="77.19718479195076" y="955.0643775154215" dy="25.5" text-anchor="start" dominant-baseline="middle" font-size="17">to practice what you learn. There are</tspan>
-                        <tspan x="77.19718479195076" y="955.0643775154215" dy="51" text-anchor="start" dominant-baseline="middle" font-size="17">project ideas at each checkpoint that</tspan>
-                        <tspan x="77.19718479195076" y="955.0643775154215" dy="76.5" text-anchor="start" dominant-baseline="middle" font-size="16">you can build to solidify your knowledge.</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="y1SFX7uvWaCy4OYBnECLu" data-type="topic" data-title="Monit" data-parent-id="cUOfvOlQ_0Uu1VX3i67kJ" data-parent-title="Basic AWS Services">
-                     <rect x="291.8719303686245" y="1267.873833184426" width="85.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="334.52193036862445" y="1293.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Monit</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="HGhnbMg6jh6cAmUH4DtOx" data-type="topic" data-title="PostgreSQL" data-parent-id="_aA6Hp4KkgJeptqo8oKTg" data-parent-title="Node.js">
-                     <rect x="263.3719303686245" y="718.2545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="334.52193036862445" y="743.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>PostgreSQL</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="J2_IWAb1s9zZcxOY3NXm2" data-type="subtopic" data-title="Checkpoint — Deployment">
-                     <rect x="17.35948964805815" y="1202.0710153640275" width="244.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="139.50948964805815" y="1227.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Deployment</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="863KMXcFJzInvTp_-Ldmz" data-type="topic" data-title="GitHub Actions" data-parent-id="y1SFX7uvWaCy4OYBnECLu" data-parent-title="Monit">
-                     <rect x="104.35948964805814" y="1393.873833184426" width="156.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="182.50948964805815" y="1419.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>GitHub Actions</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="zh4DYU0QpAolXJ6wE0CEe" data-type="horizontal">
-                     <line x1="253.00948964805815" y1="1350.2210153640276" x2="337.00948964805815" y2="1350.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="NQmEl27eBPYhivcXdOEz3" data-type="subtopic" data-title="Checkpoint — Monitoring">
-                     <rect x="17.35948964805815" y="1327.0710153640275" width="244.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="139.50948964805815" y="1352.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Monitoring</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="rFXupYpUFfp7vZO8zh614" data-type="topic" data-title="Ansible" data-parent-id="863KMXcFJzInvTp_-Ldmz" data-parent-title="GitHub Actions">
-                     <rect x="-326.21446376179995" y="1393.873833184426" width="98.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-277.06446376179997" y="1419.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Ansible</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="WJIx6JGqxoNT-vKk4LMQp" data-type="vertical">
-                     <line x1="-118.06446376179997" y1="1366" x2="-118.06446376179997" y2="1416" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="liaY1GnlOateB_ZKBjNpY" data-type="subtopic" data-title="Checkpoint — CI / CD">
-                     <rect x="-225.21446376179998" y="1327.0710153640275" width="214.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-118.06446376179997" y="1352.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — CI / CD</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="2kKHuQZScu7hCDgQWxl5u" data-type="topic" data-title="Terraform" data-parent-id="rFXupYpUFfp7vZO8zh614" data-parent-title="Ansible">
-                     <rect x="-558.7323082314751" y="1470.0786303718248" width="117.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
-                     <text x="-500.08230823147517" y="1495.378630371825" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
-                        <tspan>Terraform</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="gJhoy4tQwP4Gtwh0wL343" data-type="vertical">
-                     <line x1="-463.2578102157039" y1="1365.182006288024" x2="-463.2578102157039" y2="1415.182006288024" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="sO_9-l4FECbaqiaFnyeXO" data-type="subtopic" data-title="Checkpoint — Automation">
-                     <rect x="-570.4078102157039" y="1326.2530216520515" width="248.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-446.2578102157039" y="1351.5530216520517" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Automation</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="b7EdI-25v_eVMkqTBa0se" data-type="horizontal">
-                     <line x1="-498" y1="1562.5384432996068" x2="-399" y2="1562.5384432996068" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
-                  </g>
-                  <g data-node-id="YVMyHFSCVF-GgXydq-SFJ" data-type="subtopic" data-title="Checkpoint — Infrastructure">
-                     <rect x="-414.21446376179995" y="1539.3884432996067" width="256.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
-                     <text x="-286.06446376179997" y="1564.688443299607" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
-                        <tspan>Checkpoint — Infrastructure</tspan>
-                     </text>
-                  </g>
-                  <g data-link="https://roadmap.sh/backend" data-node-id="DezWXw5LWeP1S5Sosj90S" data-type="button">
-                     <rect x="-127.51972326342039" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
-                     <text x="-77.36972326342038" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
-                        <tspan>Backend</tspan>
-                     </text>
-                  </g>
-                  <g data-link="https://roadmap.sh/devops" data-node-id="DsvdvpHWD0FgTjdkSJ9Uu" data-type="button">
-                     <rect x="-20.51972326342038" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
-                     <text x="29.630276736579617" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
-                        <tspan>DevOps</tspan>
-                     </text>
-                  </g>
-                  <g data-link="https://roadmap.sh/aws" data-node-id="uSLzfLPXxS5-P7ozscvjZ" data-type="button">
-                     <rect x="86.48027673657961" y="1803.834543333457" width="97.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
-                     <text x="135.13027673657962" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
-                        <tspan>AWS</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="2bi7EWaC5QIWX6_Vl6988" data-type="paragraph">
-                     <rect x="73.46827719639819" y="-100.31069241448309" width="25" height="22.3" rx="5" fill="#fcff00" stroke="#000000" stroke-width="2.7"></rect>
-                     <text fill="#ffffff"></text>
-                  </g>
-                  <g data-node-id="aaWX__NQvUofoN1VzwgD0" data-type="label">
-                     <text x="112.99749010787673" y="-83.16069241448308" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
-                        <tspan>Key topics to learn</tspan>
-                     </text>
-                  </g>
-                  <g data-node-id="kvS4x6z7YWJjMpkpU01yh" data-type="paragraph">
-                     <rect x="73.46827719639819" y="-66.93925019287856" width="25" height="22.3" rx="5" fill="#000000" stroke="#000000" stroke-width="2.7"></rect>
-                     <text fill="#000000"></text>
-                  </g>
-                  <g data-node-id="7HLG5FTMmOWGS-mOpqnQh" data-type="label">
-                     <text x="112.99749010787673" y="-47.16069241448308" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
-                        <tspan>Project ideas and suggestions</tspan>
-                     </text>
-                  </g>
-               </svg>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     viewBox="-605 -300 1042 2258"
+                     style="font-family: balsamiq"
+                     version="1.1">
+                    <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="PShueM-HfMGu2Jy1dt73g" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-504.08230823147517 -124.89091544360696L-504.08230823147517 -104.89091544360696L -504.08230823147517,62.904587772901664Q -504.08230823147517,67.90458777290166 -499.08230823147517,67.90458777290166L-415.56446376179997 67.90458777290166L-395.56446376179997 67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-iogwMmOvub2ZF4zgg6WyFx2-mGgx_QTEPmVKf6AijX9fiy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-291.56446376179997,67.90458777290166 C-271.56446376179997,67.90458777290166 -271.56446376179997,67.90458777290166 -251.56446376179997,67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-B0kARTODvCBi0iOF8iiqIz2-mGgx_QTEPmVKf6AijX9fiy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M152.00948964805815 67.90458777290166L172.00948964805815 67.90458777290166L 343.1821043313223,67.90458777290166Q 348.1821043313223,67.90458777290166 348.1821043313223,72.90458777290166L348.1821043313223 113.40458777290166L348.1821043313223 133.40458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-khoUtTUxdf8udAzN9_CAbz2-mGgx_QTEPmVKf6AijX9fiw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-151.56446376179997,67.90458777290166 C-61.77748705687091,67.90458777290166 -61.77748705687091,67.90458777290166 28.00948964805815,67.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-dAJHWmGeiYdzZ1ZjrWz1Sz2-khoUtTUxdf8udAzN9_CAby2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M348.1821043313223 182.40458777290166L348.1821043313223 202.40458777290166L 348.1821043313223,335.90458777290166Q 348.1821043313223,340.90458777290166 343.1821043313223,340.90458777290166L282.00948964805815 340.90458777290166L262.00948964805815 340.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-mGgx_QTEPmVKf6AijX9fix2-We2APJpOPTr-VNfowG0kIz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M162.00948964805815,340.90458777290166 C121.22251294312909,340.90458777290166 121.22251294312909,340.90458777290166 80.43553623820003,340.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-We2APJpOPTr-VNfowG0kIy2-khoUtTUxdf8udAzN9_CAbz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-19.56446376179997,340.90458777290166 C-102.02126669658776,340.90458777290166 -102.02126669658776,339.90458777290166 -184.47806963137555,339.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-8sPXL8iClpPqje03kssesy2-khoUtTUxdf8udAzN9_CAbz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-329.47806963137555,339.90458777290166 C-337.1479826500266,339.90458777290166 -337.1479826500266,339.90458777290166 -344.8178956686777,339.90458777290166" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5uy2-khoUtTUxdf8udAzN9_CAbz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-444.8178956686777 339.90458777290166L-464.8178956686777 339.90458777290166L -497.08230823147517,339.90458777290166Q -502.08230823147517,339.90458777290166 -502.08230823147517,344.90458777290166L -502.08230823147517,594.9045877729017Q -502.08230823147517,599.9045877729017 -497.08230823147517,599.9045877729017L-482.08230823147517 599.9045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-khoUtTUxdf8udAzN9_CAby2-QfW-odmDYknm_qXNcDu5oy1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-218.08230823147517,599.9045877729017 C-105.53640929170851,599.9045877729017 -105.53640929170851,599.4045877729017 7.00948964805815,599.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-QfW-odmDYknm_qXNcDu5oz2-2kKHuQZScu7hCDgQWxl5uy1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M334.52193036862445 765.9045877729017L334.52193036862445 785.9045877729017L 334.52193036862445,867.4045877729017Q 334.52193036862445,872.4045877729017 329.52193036862445,872.4045877729017L52.61857813823781 872.4045877729017L32.61857813823781 872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5ux2-cUOfvOlQ_0Uu1VX3i67kJz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-117.38142186176219,872.4045877729017 C-126.22294281178108,872.4045877729017 -126.22294281178108,872.4045877729017 -135.06446376179997,872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-vmHbWdmMHF53otXIrqzRVy2-cUOfvOlQ_0Uu1VX3i67kJz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-257.06446376179997,872.4045877729017 C-308.57338599663757,872.4045877729017 -308.57338599663757,872.4045877729017 -360.08230823147517,872.4045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-vHojhJYjiN0IwruEqi1Dvy2-cUOfvOlQ_0Uu1VX3i67kJz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-460.08230823147517 872.4045877729017L-480.08230823147517 872.4045877729017L -499.08230823147517,872.4045877729017Q -504.08230823147517,872.4045877729017 -504.08230823147517,877.4045877729017L-504.08230823147517 1125.3143775154215L-504.08230823147517 1145.3143775154215" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-Onfd7Sl8LG2sjh2aQY7gby2-cUOfvOlQ_0Uu1VX3i67kJw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-431.58230823147517,1169.8143775154215 C-336.6433239041644,1169.8143775154215 -336.6433239041644,1169.8143775154215 -241.7043395768536,1169.8143775154215" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-SHTSvMDqI7X1_ZT7-m--nz2-cUOfvOlQ_0Uu1VX3i67kJy2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-32.70433957685361 1169.8143775154215L-12.704339576853613 1169.8143775154215L 329.52193036862445,1169.8143775154215Q 334.52193036862445,1169.8143775154215 334.52193036862445,1174.8143775154215L334.52193036862445 1246.5238331844262L334.52193036862445 1266.5238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-cUOfvOlQ_0Uu1VX3i67kJz2-2kKHuQZScu7hCDgQWxl5uw2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M152.00948964805815 599.4045877729017L172.00948964805815 599.4045877729017L 329.52193036862445,599.4045877729017Q 334.52193036862445,599.4045877729017 334.52193036862445,604.4045877729017L334.52193036862445 696.9045877729017L334.52193036862445 716.9045877729017" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-_aA6Hp4KkgJeptqo8oKTgz2-HGhnbMg6jh6cAmUH4DtOxw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M334.52193036862445 1315.5238331844262L334.52193036862445 1335.5238331844262L 334.52193036862445,1412.0238331844262Q 334.52193036862445,1417.0238331844262 329.52193036862445,1417.0238331844262L282.00948964805815 1417.0238331844262L262.00948964805815 1417.0238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-y1SFX7uvWaCy4OYBnECLux2-2kKHuQZScu7hCDgQWxl5uz1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M103.00948964805815,1417.0238331844262 C-61.77748705687091,1417.0238331844262 -61.77748705687091,1417.0238331844262 -226.56446376179997,1417.0238331844262" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-863KMXcFJzInvTp_-Ldmzy2-2kKHuQZScu7hCDgQWxl5uz2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-327.56446376179997 1417.0238331844262L-347.56446376179997 1417.0238331844262L -495.08230823147517,1417.0238331844262Q -500.08230823147517,1417.0238331844262 -500.08230823147517,1422.0238331844262L-500.08230823147517 1448.728630371825L-500.08230823147517 1468.728630371825" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-rFXupYpUFfp7vZO8zh614y2-2kKHuQZScu7hCDgQWxl5uw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <path d="M-500.08230823147517 1517.728630371825L-500.08230823147517 1537.728630371825L -500.08230823147517,1626.8717081664122Q -500.08230823147517,1631.8717081664122 -495.08230823147517,1631.8717081664122L -31.78332913299596,1631.8717081664122Q -26.78332913299596,1631.8717081664122 -26.78332913299596,1636.8717081664122L-26.78332913299596 1726.0147859609992L-26.78332913299596 1746.0147859609992" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="reactflow__edge-2kKHuQZScu7hCDgQWxl5ux2-sVXZrBCsiSzWBBYWTm-nQw1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0">
+                    </path>
+                    <g data-node-id="yrZUjoNj7mjOHaZVRiFJV" data-type="horizontal">
+                    <line x1="-502.08230823147517" y1="507.90458777290166" x2="-440.08230823147517" y2="507.90458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="kPPgIGhyoDoJoUJnP-vOY" data-type="section">
+                    <rect x="46.009212053078706" y="-124.15228984395415" width="352.3" height="100.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+                    <text x="44.659212053078704" y="-133.50228984395414" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
+                    <tspan></tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="tmRyxL2cIei7PVHdOvmuJ" data-type="horizontal">
+                    <line x1="253.00948964805815" y1="1225.2210153640276" x2="337.00948964805815" y2="1225.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="Ju00mr0KLGN2BV6yEQGPt" data-type="vertical">
+                    <line x1="-35.86972326342038" y1="1834.052389726952" x2="-35.86972326342038" y2="1938.052389726952" style="stroke-linecap: round; stroke-width: 3.5; stroke: #4136D4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="sVXZrBCsiSzWBBYWTm-nQ" data-type="paragraph">
+                    <rect x="-251.93332913299596" y="1747.3647859609991" width="453" height="121.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+                    <text fill="black">
+                    <tspan x="-26.78332913299596" y="1776.1147859609994" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Continue Learning with following relevant tracks</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="iogwMmOvub2ZF4zgg6WyF" data-type="title" data-title="Full Stack">
+                    <text x="-504.08230823147517" y="-158.89091544360696" text-anchor="middle" dominant-baseline="middle" font-size="28" fill="black">
+                    <tspan>Full Stack</tspan>
+                    </text>
+                    </g>
+                    <g data-link="https://roadmap.sh/frontend" data-node-id="sQsxo9QyLKZyhMnFUcxhS" data-type="button">
+                    <rect x="-234.5197232634204" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+                    <text x="-184.36972326342038" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+                    <tspan>Frontend</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="LEijbLyxg4RyutKEM2Y5g" data-type="vertical">
+                    <line x1="-504.08230823147517" y1="-273.89091544360696" x2="-504.08230823147517" y2="-192.89091544360696" style="stroke-linecap: round; stroke-width: 3.5; stroke: #0A33FF; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="B0kARTODvCBi0iOF8iiqI" data-type="topic" data-title="HTML" data-parent-id="iogwMmOvub2ZF4zgg6WyF" data-parent-title="Full Stack">
+                    <rect x="-394.21446376179995" y="44.754587772901665" width="101.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-343.56446376179997" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>HTML</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="dAJHWmGeiYdzZ1ZjrWz1S" data-type="topic" data-title="CSS" data-parent-id="B0kARTODvCBi0iOF8iiqI" data-parent-title="HTML">
+                    <rect x="-250.21446376179998" y="44.754587772901665" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-201.56446376179997" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>CSS</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="T9PB6WQf-Fa9NXKKvVOy_" data-type="topic" data-title="JavaScript" data-parent-id="dAJHWmGeiYdzZ1ZjrWz1S" data-parent-title="CSS">
+                    <rect x="29.35948964805815" y="44.754587772901665" width="121.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="90.00948964805815" y="70.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>JavaScript</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="mGgx_QTEPmVKf6AijX9fi" data-type="topic" data-title="npm" data-parent-id="T9PB6WQf-Fa9NXKKvVOy_" data-parent-title="JavaScript">
+                    <rect x="299.53210433132233" y="134.75458777290166" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="348.1821043313223" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>npm</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="WsdUAEaI7FX6DKKhPXUHp" data-type="subtopic" data-title="Checkpoint - Static Webpages">
+                    <rect x="-350.6280696313755" y="134.75458777290166" width="287.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-206.97806963137555" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint - Static Webpages</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="arAWBttFmMY6g99PcEaeA" data-type="vertical">
+                    <line x1="-107.38142186176219" y1="69.40458777290166" x2="-107.38142186176219" y2="133.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="2DFzoIUjKdAKGjfu_SCfa" data-type="subtopic" data-title="Checkpoint - Interactivity">
+                    <rect x="-22.64051035194185" y="134.75458777290166" width="283.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="119.00948964805815" y="160.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint - Interactivity</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="CVVeXklBu8uEr7oyiSEhQ" data-type="vertical">
+                    <line x1="201.6185781382378" y1="71.40458777290166" x2="201.6185781382378" y2="133.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="We2APJpOPTr-VNfowG0kI" data-type="topic" data-title="Git" data-parent-id="mGgx_QTEPmVKf6AijX9fi" data-parent-title="npm">
+                    <rect x="163.35948964805814" y="317.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="212.00948964805815" y="343.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Git</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="8sPXL8iClpPqje03ksses" data-type="topic" data-title="GitHub" data-parent-id="We2APJpOPTr-VNfowG0kI" data-parent-title="Git">
+                    <rect x="-18.21446376179997" y="317.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="30.43553623820003" y="343.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>GitHub</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="R4aeJNOrfWyVp3ea-qF4H" data-type="subtopic" data-title="Checkpoint - External Packages">
+                    <rect x="-25.628069631375546" y="216.75458777290166" width="286.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="117.52193036862445" y="242.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint - External Packages</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="PW10DTLV-5U2ue770SXtM" data-type="horizontal">
+                    <line x1="262.02193036862445" y1="239.90458777290166" x2="346.02193036862445" y2="239.90458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="CVCqdPkq_hGQfI8EEi5RC" data-type="topic" data-title="Tailwind CSS" data-parent-id="8sPXL8iClpPqje03ksses" data-parent-title="GitHub">
+                    <rect x="-328.1280696313755" y="316.7545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-256.97806963137555" y="342.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Tailwind CSS</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="khoUtTUxdf8udAzN9_CAb" data-type="topic" data-title="React" data-parent-id="CVCqdPkq_hGQfI8EEi5RC" data-parent-title="Tailwind CSS">
+                    <rect x="-443.46789566867767" y="316.7545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-394.8178956686777" y="342.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>React</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="zFGWxgLPcZoW7KIzlnSV9" data-type="subtopic" data-title="Checkpoint - Collaborative Work">
+                    <rect x="-349.6280696313755" y="216.75458777290166" width="286.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-206.47806963137555" y="242.05458777290167" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint - Collaborative Work</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="8MhESAMICF6j7X3RL9bFE" data-type="vertical">
+                    <line x1="-107.38142186176219" y1="265.40458777290166" x2="-107.38142186176219" y2="338.40458777290166" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="H63WyNiiJ2Yr9HWs98EjR" data-type="paragraph">
+                    <rect x="-458.1280696313755" y="398.2545877729017" width="275" height="60.3" rx="5" fill="TRANSPARENT" stroke="transparent" stroke-width="2.7"></rect>
+                    <text fill="#000000">
+                    <tspan x="-321.97806963137555" y="415.65458777290166" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Feel free to skip these and</tspan>
+                    <tspan x="-321.97806963137555" y="415.65458777290166" dy="25.5" text-anchor="middle" dominant-baseline="middle" font-size="17">revisit after learning Backend</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="QfW-odmDYknm_qXNcDu5o" data-type="paragraph">
+                    <rect x="-480.73230823147514" y="577.2545877729017" width="264" height="45.3" rx="5" fill="#ffffff" stroke="transparent" stroke-width="2.7"></rect>
+                    <text fill="#000000">
+                    <tspan x="-350.08230823147517" y="599.9045877729017" dy="0" text-anchor="middle" dominant-baseline="middle" font-size="17">Start Backend Development</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="7JU1cVggMDoZUV-adGsf-" data-type="subtopic" data-title="Checkpoint - Frontend Apps">
+                    <rect x="-442.1280696313755" y="484.7545877729017" width="256.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-313.97806963137555" y="510.05458777290164" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint - Frontend Apps</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="_aA6Hp4KkgJeptqo8oKTg" data-type="topic" data-title="Node.js" data-parent-id="QfW-odmDYknm_qXNcDu5o" data-parent-title="Start Backend Development">
+                    <rect x="8.35948964805815" y="576.2545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="79.50948964805815" y="601.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Node.js</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="qCV1wiNSXj4OSHyMqxRIK" data-type="paragraph">
+                    <rect x="-25.628069631375546" y="432.7545877729017" width="444" height="98.3" rx="5" fill="TRANSPARENT" stroke="transparent" stroke-width="2.7"></rect>
+                    <text fill="#000000">
+                    <tspan x="-8.278069631375548" y="456.4045877729016" dy="0" text-anchor="start" dominant-baseline="middle" font-size="17">You can pick any backend programming language.</tspan>
+                    <tspan x="-8.278069631375548" y="456.4045877729016" dy="25.5" text-anchor="start" dominant-baseline="middle" font-size="17">My recommendation is Node.js because you are</tspan>
+                    <tspan x="-8.278069631375548" y="456.4045877729016" dy="51" text-anchor="start" dominant-baseline="middle" font-size="17">already familiar with JavaScript and it's easier to pick.</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="0QKpvDD33C3WCmNGtRanp" data-type="vertical">
+                    <line x1="-94.20433957685361" y1="531.9045877729017" x2="-94.20433957685361" y2="661.9045877729017" style="stroke-linecap: round; stroke-width: 3; stroke: #000000; stroke-dasharray: 0;"></line>
+                    </g>
+                    <g data-node-id="WqNcVZ8IkyqEubdd9JCa1" data-type="label">
+                    <text x="-273.06446376179997" y="654.9045877729017" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
+                    <tspan>Backend Starts here</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="JGu0TKwAw-ieiG92BytYI" data-type="subtopic" data-title="Checkpoint — CLI Apps">
+                    <rect x="-46.64051035194185" y="653.2545877729017" width="298.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="102.50948964805815" y="678.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — CLI Apps</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="o72NM00uoHXswkadhqVVW" data-type="horizontal">
+                    <line x1="253.00948964805815" y1="676.4045877729017" x2="337.00948964805815" y2="676.4045877729017" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="vmHbWdmMHF53otXIrqzRV" data-type="topic" data-title="RESTful APIs" data-parent-id="HGhnbMg6jh6cAmUH4DtOx" data-parent-title="PostgreSQL">
+                    <rect x="-116.0314218617622" y="849.2545877729017" width="147.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-42.38142186176219" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>RESTful APIs</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="3EtGLO6cwkLc1-o9gwFNk" data-type="subtopic" data-title="Checkpoint — Simple CRUD Apps">
+                    <rect x="-48.640510351941906" y="781.0710153640276" width="300.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="101.50948964805809" y="806.3710153640276" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Simple CRUD Apps</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="BQV2ycD-EnmssO1idTgx9" data-type="horizontal">
+                    <line x1="253.00948964805815" y1="804.2210153640276" x2="337.00948964805815" y2="804.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="vHojhJYjiN0IwruEqi1Dv" data-type="topic" data-title="JWT Auth" data-parent-id="vmHbWdmMHF53otXIrqzRV" data-parent-title="RESTful APIs">
+                    <rect x="-255.71446376179998" y="849.2545877729017" width="119.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-196.06446376179997" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>JWT Auth</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="Onfd7Sl8LG2sjh2aQY7gb" data-type="topic" data-title="Redis" data-parent-id="vHojhJYjiN0IwruEqi1Dv" data-parent-title="JWT Auth">
+                    <rect x="-458.73230823147514" y="849.2545877729017" width="97.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-410.08230823147517" y="874.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Redis</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="SHTSvMDqI7X1_ZT7-m--n" data-type="topic" data-title="Linux Basics" data-parent-id="Onfd7Sl8LG2sjh2aQY7gb" data-parent-title="Redis">
+                    <rect x="-575.2323082314751" y="1146.6643775154214" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-504.08230823147517" y="1171.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Linux Basics</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="gSUWhfd0DQoJjDpHEkk0i" data-type="horizontal">
+                    <line x1="-504.47806963137555" y1="980.0850398450953" x2="-405.47806963137555" y2="980.0850398450953" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="v4NF25lJElAtkU0Rm6Fob" data-type="subtopic" data-title="Checkpoint — Complete App">
+                    <rect x="-458.1280696313755" y="956.9350398450953" width="261.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-327.47806963137555" y="982.2350398450952" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Complete App</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="Oav7YPRBmsE1gVhEURckg" data-type="horizontal">
+                    <line x1="-560.0823082314752" y1="1047.8143775154215" x2="-318.08230823147517" y2="1047.8143775154215" style="stroke-linecap: round; stroke-width: 3; stroke: #000000; stroke-dasharray: 0;"></line>
+                    </g>
+                    <g data-node-id="Dj2QhtEuuIgKc2CvgFGyK" data-type="label">
+                    <text x="-463.2578102157039" y="1075.3143775154215" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
+                    <tspan>DevOps starts here</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="cUOfvOlQ_0Uu1VX3i67kJ" data-type="topic" data-title="Basic AWS Services" data-parent-id="SHTSvMDqI7X1_ZT7-m--n" data-parent-title="Linux Basics">
+                    <rect x="-240.35433957685362" y="1146.6643775154214" width="206.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-137.2043395768536" y="1171.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Basic AWS Services</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="6oBIxYj8WPcUHidQ99tus" data-type="subtopic" data-title="EC2">
+                    <rect x="-238.21446376179998" y="1088.6643775154214" width="67.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+                    <text x="-204.56446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>EC2</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="QtL-bLKtWIdH00K6k_PdC" data-type="subtopic" data-title="VPC">
+                    <rect x="-164.21446376179998" y="1088.6643775154214" width="67.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+                    <text x="-130.56446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>VPC</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="5zyYpu9cyuTFwQCjTbHpS" data-type="subtopic" data-title="Route53">
+                    <rect x="-238.21446376179998" y="1033.6643775154214" width="100.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+                    <text x="-188.06446376179997" y="1059.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Route53</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="B-cphY7Imnv6JBMujVIF7" data-type="subtopic" data-title="SES">
+                    <rect x="-132.35433957685362" y="1033.6643775154214" width="97.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+                    <text x="-83.70433957685361" y="1059.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>SES</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="n2Xp_ijJ2OS8xhE7xMWxk" data-type="subtopic" data-title="S3">
+                    <rect x="-90.21446376179998" y="1088.6643775154214" width="56.3" height="48.3" rx="5" fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+                    <text x="-62.06446376179997" y="1114.9643775154216" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>S3</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="fKzuMTsf6XL_0Ik6t8SAX" data-type="paragraph">
+                    <rect x="59.84718479195076" y="925.1643775154215" width="341" height="136.3" rx="5" fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+                    <text fill="#000000">
+                    <tspan x="77.19718479195076" y="955.0643775154215" dy="0" text-anchor="start" dominant-baseline="middle" font-size="17">Use the checkpoints and do not forget</tspan>
+                    <tspan x="77.19718479195076" y="955.0643775154215" dy="25.5" text-anchor="start" dominant-baseline="middle" font-size="17">to practice what you learn. There are</tspan>
+                    <tspan x="77.19718479195076" y="955.0643775154215" dy="51" text-anchor="start" dominant-baseline="middle" font-size="17">project ideas at each checkpoint that</tspan>
+                    <tspan x="77.19718479195076" y="955.0643775154215" dy="76.5" text-anchor="start" dominant-baseline="middle" font-size="16">you can build to solidify your knowledge.</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="y1SFX7uvWaCy4OYBnECLu" data-type="topic" data-title="Monit" data-parent-id="cUOfvOlQ_0Uu1VX3i67kJ" data-parent-title="Basic AWS Services">
+                    <rect x="291.8719303686245" y="1267.873833184426" width="85.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="334.52193036862445" y="1293.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Monit</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="HGhnbMg6jh6cAmUH4DtOx" data-type="topic" data-title="PostgreSQL" data-parent-id="_aA6Hp4KkgJeptqo8oKTg" data-parent-title="Node.js">
+                    <rect x="263.3719303686245" y="718.2545877729017" width="142.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="334.52193036862445" y="743.5545877729016" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>PostgreSQL</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="J2_IWAb1s9zZcxOY3NXm2" data-type="subtopic" data-title="Checkpoint — Deployment">
+                    <rect x="17.35948964805815" y="1202.0710153640275" width="244.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="139.50948964805815" y="1227.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Deployment</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="863KMXcFJzInvTp_-Ldmz" data-type="topic" data-title="GitHub Actions" data-parent-id="y1SFX7uvWaCy4OYBnECLu" data-parent-title="Monit">
+                    <rect x="104.35948964805814" y="1393.873833184426" width="156.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="182.50948964805815" y="1419.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>GitHub Actions</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="zh4DYU0QpAolXJ6wE0CEe" data-type="horizontal">
+                    <line x1="253.00948964805815" y1="1350.2210153640276" x2="337.00948964805815" y2="1350.2210153640276" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="NQmEl27eBPYhivcXdOEz3" data-type="subtopic" data-title="Checkpoint — Monitoring">
+                    <rect x="17.35948964805815" y="1327.0710153640275" width="244.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="139.50948964805815" y="1352.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Monitoring</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="rFXupYpUFfp7vZO8zh614" data-type="topic" data-title="Ansible" data-parent-id="863KMXcFJzInvTp_-Ldmz" data-parent-title="GitHub Actions">
+                    <rect x="-326.21446376179995" y="1393.873833184426" width="98.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-277.06446376179997" y="1419.1738331844263" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Ansible</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="WJIx6JGqxoNT-vKk4LMQp" data-type="vertical">
+                    <line x1="-118.06446376179997" y1="1366" x2="-118.06446376179997" y2="1416" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="liaY1GnlOateB_ZKBjNpY" data-type="subtopic" data-title="Checkpoint — CI / CD">
+                    <rect x="-225.21446376179998" y="1327.0710153640275" width="214.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-118.06446376179997" y="1352.3710153640277" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — CI / CD</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="2kKHuQZScu7hCDgQWxl5u" data-type="topic" data-title="Terraform" data-parent-id="rFXupYpUFfp7vZO8zh614" data-parent-title="Ansible">
+                    <rect x="-558.7323082314751" y="1470.0786303718248" width="117.3" height="46.3" rx="5" fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+                    <text x="-500.08230823147517" y="1495.378630371825" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#000000">
+                    <tspan>Terraform</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="gJhoy4tQwP4Gtwh0wL343" data-type="vertical">
+                    <line x1="-463.2578102157039" y1="1365.182006288024" x2="-463.2578102157039" y2="1415.182006288024" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="sO_9-l4FECbaqiaFnyeXO" data-type="subtopic" data-title="Checkpoint — Automation">
+                    <rect x="-570.4078102157039" y="1326.2530216520515" width="248.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-446.2578102157039" y="1351.5530216520517" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Automation</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="b7EdI-25v_eVMkqTBa0se" data-type="horizontal">
+                    <line x1="-498" y1="1562.5384432996068" x2="-399" y2="1562.5384432996068" style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+                    </g>
+                    <g data-node-id="YVMyHFSCVF-GgXydq-SFJ" data-type="subtopic" data-title="Checkpoint — Infrastructure">
+                    <rect x="-414.21446376179995" y="1539.3884432996067" width="256.3" height="46.3" rx="5" fill="#333333" stroke="black" stroke-width="2.7" style="--hover-color: #333333"></rect>
+                    <text x="-286.06446376179997" y="1564.688443299607" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#ffffff">
+                    <tspan>Checkpoint — Infrastructure</tspan>
+                    </text>
+                    </g>
+                    <g data-link="https://roadmap.sh/backend" data-node-id="DezWXw5LWeP1S5Sosj90S" data-type="button">
+                    <rect x="-127.51972326342039" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+                    <text x="-77.36972326342038" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+                    <tspan>Backend</tspan>
+                    </text>
+                    </g>
+                    <g data-link="https://roadmap.sh/devops" data-node-id="DsvdvpHWD0FgTjdkSJ9Uu" data-type="button">
+                    <rect x="-20.51972326342038" y="1803.834543333457" width="100.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+                    <text x="29.630276736579617" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+                    <tspan>DevOps</tspan>
+                    </text>
+                    </g>
+                    <g data-link="https://roadmap.sh/aws" data-node-id="uSLzfLPXxS5-P7ozscvjZ" data-type="button">
+                    <rect x="86.48027673657961" y="1803.834543333457" width="97.3" height="46.3" rx="5" fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+                    <text x="135.13027673657962" y="1829.1345433334573" text-anchor="middle" dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+                    <tspan>AWS</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="2bi7EWaC5QIWX6_Vl6988" data-type="paragraph">
+                    <rect x="73.46827719639819" y="-100.31069241448309" width="25" height="22.3" rx="5" fill="#fcff00" stroke="#000000" stroke-width="2.7"></rect>
+                    <text fill="#ffffff"></text>
+                    </g>
+                    <g data-node-id="aaWX__NQvUofoN1VzwgD0" data-type="label">
+                    <text x="112.99749010787673" y="-83.16069241448308" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
+                    <tspan>Key topics to learn</tspan>
+                    </text>
+                    </g>
+                    <g data-node-id="kvS4x6z7YWJjMpkpU01yh" data-type="paragraph">
+                    <rect x="73.46827719639819" y="-66.93925019287856" width="25" height="22.3" rx="5" fill="#000000" stroke="#000000" stroke-width="2.7"></rect>
+                    <text fill="#000000"></text>
+                    </g>
+                    <g data-node-id="7HLG5FTMmOWGS-mOpqnQh" data-type="label">
+                    <text x="112.99749010787673" y="-47.16069241448308" text-anchor="left" dominant-baseline="auto" font-size="17" fill="black">
+                    <tspan>Project ideas and suggestions</tspan>
+                    </text>
+                    </g>
+                </svg>
             </div>
-         </section>
-         <div class="topic-area section-padding40">
+        </section>
+        <div class="topic-area section-padding40">
             <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-xl-7 col-lg-8">
-                     <div class="section-tittle text-center mb-55">
-                        <h2>Explore top subjects</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic1.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Explore top subjects</h2>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic2.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic1.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic3.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic2.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic4.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic3.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic5.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic4.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic6.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic5.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic7.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic6.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                     <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                           <img src="static/assets/img/gallery/topic8.png" alt="">
-                           <div class="topic-content-box">
-                              <div class="topic-content">
-                                 <h3><a href="courses"><i class="fas fa-play"></i></a></h3>
-                              </div>
-                           </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic7.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-xl-12">
-                     <div class="section-tittle text-center mt-20">
-                        <a href="courses" class="border-btn">View More Subjects</a>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="static/assets/img/gallery/topic8.png" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3>
+                                            <a href="courses"><i class="fas fa-play"></i></a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-12">
+                        <div class="section-tittle text-center mt-20">
+                            <a href="courses" class="border-btn">View More Subjects</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <section class="about-area3 fix">
+        </div>
+        <section class="about-area3 fix">
             <div class="support-wrapper align-items-center">
-               <div class="right-content3">
-                  <div class="right-img">
-                     <img src="static/assets/img/gallery/about3.png" alt="">
-                  </div>
-               </div>
-               <div class="left-content3">
-                  <div class="section-tittle section-tittle2 mb-20">
-                     <div class="front-text">
-                        <h2 class="">Learner Outcomes for Fullstack Development Courses</h2>
-                     </div>
-                  </div>
-                  <div class="single-features">
-                     <div class="features-icon">
-                        <img src="static/assets/img/icon/right-icon.svg" alt="">
-                     </div>
-                     <div class="features-caption">
-                        <p>Gain hands-on experience with both frontend and backend technologies.</p>
-                     </div>
-                  </div>
-                  <div class="single-features">
-                     <div class="features-icon">
-                        <img src="static/assets/img/icon/right-icon.svg" alt="">
-                     </div>
-                     <div class="features-caption">
-                        <p>Develop proficiency in building dynamic, data-driven web applications.</p>
-                     </div>
-                  </div>
-                  <div class="single-features">
-                     <div class="features-icon">
-                        <img src="static/assets/img/icon/right-icon.svg" alt="">
-                     </div>
-                     <div class="features-caption">
-                        <p>Learn how to effectively engage with users and create seamless user interfaces.</p>
-                     </div>
-                  </div>
-                  <div class="single-features">
-                     <div class="features-icon">
-                        <img src="static/assets/img/icon/right-icon.svg" alt="">
-                     </div>
-                     <div class="features-caption">
-                        <p>Build and deploy your own projects, preparing you for a career as a Fullstack Developer.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-      </main>
-      <footer>
-         <div class="footer-wrappper footer-bg">
-            <div class="footer-bottom-area">
-               <div class="container">
-                  <div class="footer-border">
-                     <div class="row d-flex align-items-center">
-                        <div class="col-xl-12 ">
-                           <div class="footer-copy-right text-center">
-                              <p>
-                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-                              </p>
-                           </div>
+                <div class="right-content3">
+                    <div class="right-img">
+                        <img src="static/assets/img/gallery/about3.png" alt="">
+                    </div>
+                </div>
+                <div class="left-content3">
+                    <div class="section-tittle section-tittle2 mb-20">
+                        <div class="front-text">
+                            <h2 class="">Learner Outcomes for Fullstack Development Courses</h2>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="static/assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Gain hands-on experience with both frontend and backend technologies.</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="static/assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Develop proficiency in building dynamic, data-driven web applications.</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="static/assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Learn how to effectively engage with users and create seamless user interfaces.</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="static/assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Build and deploy your own projects, preparing you for a career as a Fullstack Developer.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </footer>
-      <div id="back-top" >
-         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-      </div>
-      <!-- JS here -->
-      <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
-      <!-- Jquery, Popper, Bootstrap -->
-      <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
-      <script src="static/assets/js/popper.min.js"></script>
-      <script src="static/assets/js/bootstrap.min.js"></script>
-      <!-- Jquery Mobile Menu -->
-      <script src="static/assets/js/jquery.slicknav.min.js"></script>
-      <!-- Jquery Slick , Owl-Carousel Plugins -->
-      <script src="static/assets/js/owl.carousel.min.js"></script>
-      <script src="static/assets/js/slick.min.js"></script>
-      <!-- One Page, Animated-HeadLin -->
-      <script src="static/assets/js/wow.min.js"></script>
-      <script src="static/assets/js/animated.headline.js"></script>
-      <script src="static/assets/js/jquery.magnific-popup.js"></script>
-      <!-- Date Picker -->
-      <script src="static/assets/js/gijgo.min.js"></script>
-      <!-- Nice-select, sticky -->
-      <script src="static/assets/js/jquery.nice-select.min.js"></script>
-      <script src="static/assets/js/jquery.sticky.js"></script>
-      <!-- Progress -->
-      <script src="static/assets/js/jquery.barfiller.js"></script>
-      <!-- counter , waypoint,Hover Direction -->
-      <script src="static/assets/js/jquery.counterup.min.js"></script>
-      <script src="static/assets/js/waypoints.min.js"></script>
-      <script src="static/assets/js/jquery.countdown.min.js"></script>
-      <script src="static/assets/js/hover-direction-snake.min.js"></script>
-      <!-- contact js -->
-      <script src="static/assets/js/contact.js"></script>
-      <script src="static/assets/js/jquery.form.js"></script>
-      <script src="static/assets/js/jquery.validate.min.js"></script>
-      <script src="static/assets/js/mail-script.js"></script>
-      <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
-      <!-- Jquery Plugins, main Jquery -->	
-      <script src="static/assets/js/plugins.js"></script>
-      <script src="static/assets/js/main.js"></script>
-   </body>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-wrappper footer-bg">
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <script src="static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="static/assets/js/popper.min.js"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="static/assets/js/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="static/assets/js/owl.carousel.min.js"></script>
+    <script src="static/assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="static/assets/js/wow.min.js"></script>
+    <script src="static/assets/js/animated.headline.js"></script>
+    <script src="static/assets/js/jquery.magnific-popup.js"></script>
+    <!-- Date Picker -->
+    <script src="static/assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="static/assets/js/jquery.nice-select.min.js"></script>
+    <script src="static/assets/js/jquery.sticky.js"></script>
+    <!-- Progress -->
+    <script src="static/assets/js/jquery.barfiller.js"></script>
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="static/assets/js/jquery.counterup.min.js"></script>
+    <script src="static/assets/js/waypoints.min.js"></script>
+    <script src="static/assets/js/jquery.countdown.min.js"></script>
+    <script src="static/assets/js/hover-direction-snake.min.js"></script>
+    <!-- contact js -->
+    <script src="static/assets/js/contact.js"></script>
+    <script src="static/assets/js/jquery.form.js"></script>
+    <script src="static/assets/js/jquery.validate.min.js"></script>
+    <script src="static/assets/js/mail-script.js"></script>
+    <script src="static/assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="static/assets/js/plugins.js"></script>
+    <script src="static/assets/js/main.js"></script>
+    {% include 'chatbot_widget.html' %}
+</body>
 </html>
